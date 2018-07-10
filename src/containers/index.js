@@ -8,6 +8,7 @@ import PostDetail from './PostDetail';
 import MapScreen from './Map';
 import EventDetail from './EventDetail';
 import EventScreen from './EventScreen';
+import Setting from './Setting';
 
 export {
   Home,
@@ -20,4 +21,5 @@ export {
   MapScreen,
   EventDetail,
   EventScreen,
+  Setting,
 };

@@ -21,6 +21,7 @@ export default StyleSheet.create({
     borderRadius: Platform.OS === 'ios' ? 45 : 23,
     backgroundColor: Colors.defaultOpacity,
     position: 'absolute',
+    elevation: 10,
     alignItems: 'center',
     justifyContent: 'center',
   },

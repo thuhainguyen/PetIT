@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import RootNavigator from "./rootNavigator";
-import { addListener } from "../utilities/redux";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import RootNavigator from './rootNavigator';
+import { addListener } from '../utilities/redux';
 
 class AppWithNavigationState extends React.PureComponent {
   render() {
@@ -12,7 +12,7 @@ class AppWithNavigationState extends React.PureComponent {
         navigation={{
           dispatch,
           state: navigation,
-          addListener
+          addListener,
         }}
       />
     );
@@ -21,7 +21,7 @@ class AppWithNavigationState extends React.PureComponent {
 
 AppWithNavigationState.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  navigation: PropTypes.object.isRequired
+  navigation: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -32,7 +32,4 @@ const mapDispatchToProps = dispatch => ({
   dispatch,
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AppWithNavigationState);
+export default connect(mapStateToProps, mapDispatchToProps)(AppWithNavigationState);

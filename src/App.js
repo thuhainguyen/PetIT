@@ -16,7 +16,6 @@ class App extends PureComponent {
       <Provider store={store}>
         <Navigator />
       </Provider>
-      
     );
   }
 }

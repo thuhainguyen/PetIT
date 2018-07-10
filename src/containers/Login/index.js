@@ -25,6 +25,9 @@ class Login extends PureComponent {
     return (
       <View style={{ flex: 1, backgroundColor: '#FFF' }}>
         <Text>Login</Text>
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <Text onPress={() => this.props.navigation.navigate('Home')}>Next</Text>
+        </View>
       </View>
     );
   }

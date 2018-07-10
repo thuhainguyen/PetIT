@@ -1,15 +1,15 @@
 import { createSwitchNavigator } from 'react-navigation';
 import Auth from './authStack';
-import TabHome from './tabHome';
+import Home from './tabHome';
 
 export default createSwitchNavigator(
   {
     Auth: {
       screen: Auth,
     },
-    TabHome: {
-      screen: TabHome,
-    }
+    Home: {
+      screen: Home,
+    },
   },
   {
     // TODO change Home to Auth when has asyncStorage

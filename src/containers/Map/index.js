@@ -15,6 +15,12 @@ import style from './style';
 import images from '../../themes/Icons';
 
 class Map extends PureComponent {
+
+static navigationOptions = {
+  showLabel: false,
+  title: 'Maps',
+}
+
   constructor(props) {
     super(props);
     this.state = {

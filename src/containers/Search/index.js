@@ -20,7 +20,7 @@ class Search extends PureComponent {
   render() {
     return (
       <View style={{ flex: 1, backgroundColor: "#FFF" }}>
-        <Text>Login</Text>
+        <Text>Search</Text>
       </View>
     );
   }

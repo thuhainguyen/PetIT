@@ -2,12 +2,13 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 import { View, Image } from 'react-native';
 import { createBottomTabNavigator, TabNavigator } from 'react-navigation';
-import { Icons } from '../themes';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { Icons, Colors } from '../themes';
 import styles from './styles';
 import HomeStack from './homeStack';
 import MapStack from './mapStack';
 import EventStack from './eventStack';
-import { Search } from '../containers';
+import { Search, Setting } from '../containers';
 
 export default createBottomTabNavigator(
   {
@@ -16,8 +17,20 @@ export default createBottomTabNavigator(
       navigationOptions: ({ navigation }) => ({ tabBarVisible: navigation.state.index === 0 }),
     },
     Search,
+    Map: {
+      screen: MapStack,
+      navigationOptions: {
+        title: 'Maps',
+        iconStyle: {
+          width: 100,
+          height: 100,
+          backgroundColor: 'red',
+          elevation: 10,
+        },
+      },
+    },
     Event: EventStack,
-    Map: MapStack,
+    Setting,
   },
   {
     navigationOptions: ({ navigation }) => ({
@@ -34,6 +47,11 @@ export default createBottomTabNavigator(
         }
         if (routeName === 'Pin') {
           iconImage = focused ? Icons.pinFocused : Icons.pin;
+        }
+        if (routeName === 'Setting') {
+          iconBG = (
+            <Icon name="bars" size={24} color={focused ? Colors.default : 'grey'} />
+          );
         }
         if (routeName === 'Event') {
           iconImage = focused ? Icons.notificationFocused : Icons.notification;
@@ -60,6 +78,8 @@ export default createBottomTabNavigator(
       showLabel: false,
       style: {
         backgroundColor: '#fff',
+        height: 60,
+        elevation: -1,
       },
     },
   },
