@@ -58,8 +58,13 @@ android {
 
 dependencies {
     compile project(':react-native-image-resizer')
+    implementation(project(':react-native-maps')){
+        exclude group: 'com.google.android.gms', module: 'play-services-base'
+        exclude group: 'com.google.android.gms', module: 'play-services-maps'
+    }
     implementation project(':react-native-firebase')
     implementation "com.google.android.gms:play-services-base:15.0.0"
+    implementation 'com.google.android.gms:play-services-maps:15.0.0'
     implementation "com.google.firebase:firebase-core:15.0.2"
     compile project(path: ':react-native-image-resizer')
     compile project(':react-native-vector-icons')

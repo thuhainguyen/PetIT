@@ -2,8 +2,7 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 import { View, Image } from 'react-native';
 import { createBottomTabNavigator, TabNavigator } from 'react-navigation';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import { Icons, Colors } from '../themes';
+import { Icons, Colors, Icon } from '../themes';
 import styles from './styles';
 import HomeStack from './homeStack';
 import MapStack from './mapStack';
@@ -14,7 +13,9 @@ export default createBottomTabNavigator(
   {
     Home: {
       screen: HomeStack,
-      navigationOptions: ({ navigation }) => ({ tabBarVisible: navigation.state.index === 0 }),
+      navigationOptions: ({ navigation }) => ({
+        tabBarVisible: navigation.state.index === 0,
+      }),
     },
     Search,
     Map: {
@@ -50,7 +51,14 @@ export default createBottomTabNavigator(
         }
         if (routeName === 'Setting') {
           iconBG = (
-            <Icon name="bars" size={24} color={focused ? Colors.default : 'grey'} />
+            <Image
+              source={Icon.setting}
+              style={{
+                width: 24,
+                height: 20,
+                tintColor: focused ? Colors.default : 'grey',
+              }}
+            />
           );
         }
         if (routeName === 'Event') {
@@ -72,12 +80,12 @@ export default createBottomTabNavigator(
         );
       },
     }),
-    initialRouteName: 'Home',
+    initialRouteName: 'Map',
     tabBarOptions: {
       ...TabNavigator.Presets.iOSBottomTabs,
       showLabel: false,
       style: {
-        backgroundColor: '#fff',
+        backgroundColor: Colors.white,
         height: 60,
         elevation: -1,
       },

@@ -1,3 +1,4 @@
+import EventCard from './EventCard';
+import SearchComponent from './Search';
 
-
-export { };
+export { EventCard, SearchComponent };

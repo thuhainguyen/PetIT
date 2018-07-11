@@ -1,7 +1,7 @@
 package com.petit;
 
 import android.app.Application;
-
+import com.airbnb.android.react.maps.MapsPackage;
 import com.facebook.react.ReactApplication;
 import fr.bamlab.rnimageresizer.ImageResizerPackage;
 import io.invertase.firebase.RNFirebasePackage;
@@ -28,6 +28,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+          new MapsPackage(),
             new ImageResizerPackage(),
             new RNFirebasePackage(),
             new VectorIconsPackage(),
