@@ -6,6 +6,7 @@ import com.facebook.react.ReactApplication;
 import fr.bamlab.rnimageresizer.ImageResizerPackage;
 import io.invertase.firebase.RNFirebasePackage;
 import fr.bamlab.rnimageresizer.ImageResizerPackage;
+import com.BV.LinearGradient.LinearGradientPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import io.realm.react.RealmReactPackage;
 import com.facebook.react.ReactNativeHost;
@@ -32,7 +33,8 @@ public class MainApplication extends Application implements ReactApplication {
             new ImageResizerPackage(),
             new RNFirebasePackage(),
             new VectorIconsPackage(),
-            new RealmReactPackage()
+            new RealmReactPackage(),
+            new LinearGradientPackage()
       );
     }
 

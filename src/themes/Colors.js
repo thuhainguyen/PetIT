@@ -1,5 +1,5 @@
 const colors = {
-  default: '#19daa1',
+  default: '#1d9aa1',
   defaultOpacity: '#46c6b8',
   white: 'rgba(255,255,255,1)',
   background: 'rgba(245,245,245,1)',

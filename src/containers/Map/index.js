@@ -1,14 +1,15 @@
 import React, { PureComponent } from 'react';
-// import PropTypes from 'prop-types';
-import { View, Text } from 'react-native';
+import PropTypes from 'prop-types';
+import { View } from 'react-native';
 import MapView from 'react-native-maps';
 import { connect } from 'react-redux';
-import { SearchComponent } from '../../components';
+import { SearchComponent, ListProduct } from '../../components';
+
 import mapStyles from './mapStyle';
 import style from './style';
 // import images from '../../themes/Icons';
 
-class Map extends PureComponent {
+class MapScreen extends PureComponent {
   static navigationOptions = {
     showLabel: false,
     title: 'Maps',
@@ -27,15 +28,12 @@ class Map extends PureComponent {
     };
     this._marker = [];
     this.markers = [];
-    // this.getCurrentLocation();
-  }
-
-  setRegion = (region) => {
-    this.map.animateToCoordinate(region, 10000);
+    this.getCurrentLocation();
   }
 
   getCurrentLocation = () => {
-    navigator.geolocation.getCurrentPosition( // eslint-disable-line
+    /* eslint-disable */
+    navigator.geolocation.getCurrentPosition(
       (position) => {
         console.log('position: ', position.coords);
         const { longitude, latitude } = position.coords;
@@ -45,14 +43,13 @@ class Map extends PureComponent {
             longitude,
             latitude,
           },
-        }, () => {
-          this.setRegion({longitude, latitude});
         });
       },
       (error) => {
         console.log('error: ', error);
       },
     );
+    /* eslint-enable */
   };
   render() {
     return (
@@ -62,8 +59,8 @@ class Map extends PureComponent {
           ref={(ref) => {
             this.map = ref;
           }}
-
           showsUserLocation
+          showsMyLocationButton={this.props.showButton}
           followsUserLocation
           customMapStyle={mapStyles}
           style={{ flex: 1 }}
@@ -72,21 +69,25 @@ class Map extends PureComponent {
           maxZoomLevel={18}
         />
         <SearchComponent />
-        <View style={{position: 'absolute', top: 100, right: 50, height: 50, width: 100, backgroundColor: 'red'}}>
-          <Text onPress={this.getCurrentLocation}>
-            Location
-          </Text>
-        </View>
+        <ListProduct
+          navigation={this.props.navigation}
+          style={style.viewCard}
+        />
       </View>
     );
   }
 }
-Map.propTypes = {
-  // navigation: PropTypes.shape({
-  //   navigate: PropTypes.func.isRequired,
-  //   goBack: PropTypes.func.isRequired,
-  //   dispatch: PropTypes.func.isRequired
-  // }).isRequired
+MapScreen.propTypes = {
+  showButton: PropTypes.bool,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+    goBack: PropTypes.func.isRequired,
+    dispatch: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
-export default connect()(Map);
+MapScreen.defaultProps = {
+  showButton: false,
+};
+
+export default connect()(MapScreen);

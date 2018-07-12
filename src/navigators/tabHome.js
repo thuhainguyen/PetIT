@@ -1,13 +1,17 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
-import { View, Image } from 'react-native';
-import { createBottomTabNavigator, TabNavigator } from 'react-navigation';
+import { View, Image, TouchableOpacity, Text } from 'react-native';
+import {
+  createBottomTabNavigator,
+  TabNavigator,
+} from 'react-navigation';
 import { Icons, Colors, Icon } from '../themes';
 import styles from './styles';
 import HomeStack from './homeStack';
 import MapStack from './mapStack';
 import EventStack from './eventStack';
 import { Search, Setting } from '../containers';
+import { TabbarCustom } from '../components';
 
 export default createBottomTabNavigator(
   {
@@ -27,6 +31,7 @@ export default createBottomTabNavigator(
           height: 100,
           backgroundColor: 'red',
           elevation: 10,
+          top: -10,
         },
       },
     },
@@ -81,13 +86,29 @@ export default createBottomTabNavigator(
       },
     }),
     initialRouteName: 'Map',
+    tabBarComponent: props =>
+      (<TabbarCustom
+        {...props}
+      />),
     tabBarOptions: {
       ...TabNavigator.Presets.iOSBottomTabs,
-      showLabel: false,
+      showLabel: true,
+      labelStyle: {
+        color: Colors.white,
+      },
       style: {
-        backgroundColor: Colors.white,
-        height: 60,
-        elevation: -1,
+        backgroundColor: 'transparent',
+        borderTopWidth: 0,
+        height: 48,
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        bottom: 0,
+        borderTopLeftRadius: 15,
+        borderTopRightRadius: 15,
+      },
+      tabStyle: {
+        backgroundColor: 'transparent',
       },
     },
   },

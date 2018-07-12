@@ -8,9 +8,7 @@ import { middleware } from './utilities/redux';
 const store = createStore(AppReducer, applyMiddleware(...middleware));
 
 class App extends PureComponent {
-  state = {
-    isLoading: true,
-  };
+  state = {};
   render() {
     return (
       <Provider store={store}>

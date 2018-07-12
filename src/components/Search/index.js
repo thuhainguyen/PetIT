@@ -14,10 +14,7 @@ class SearchComponent extends PureComponent {
     return (
       <View style={style.container}>
         <View style={style.iconView}>
-          <Image
-            source={Icon.search}
-            style={style.icon}
-          />
+          <Image source={Icon.search} style={style.icon} />
         </View>
         <View style={style.inputView}>
           <TextInput

@@ -15,6 +15,12 @@ const signup = StyleSheet.create({
     top: 25,
     right: '10%',
   },
+  viewCard: {
+    width: '100%',
+    position: 'absolute',
+    bottom: 53,
+    height: 200,
+  },
 });
 
 export default signup;

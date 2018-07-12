@@ -1,8 +1,5 @@
 import React, { PureComponent } from 'react';
-import {
-  View,
-  Text,
-} from 'react-native';
+import { View, Text } from 'react-native';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -13,8 +10,7 @@ import images from '../../themes/Icons';
 class EventCard extends PureComponent {
   constructor(props) {
     super(props);
-    this.state = {
-    };
+    this.state = {};
   }
 
   render() {
@@ -25,7 +21,6 @@ class EventCard extends PureComponent {
     );
   }
 }
-EventCard.propTypes = {
-};
+EventCard.propTypes = {};
 
 export default EventCard;
