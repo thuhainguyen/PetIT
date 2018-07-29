@@ -11,10 +11,10 @@ export default createStackNavigator(
     },
     Profile: {
       screen: Profile,
-    }
+    },
   },
   {
     initialRouteName: 'Home',
     headerMode: 'modal',
-  }
+  },
 );

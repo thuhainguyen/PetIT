@@ -1,6 +1,7 @@
 const colors = {
-  default: '#1d9aa1',
+  default: '#1d9aa2',
   defaultOpacity: '#46c6b8',
+  violet: '#353A50',
   white: 'rgba(255,255,255,1)',
   background: 'rgba(245,245,245,1)',
   text: 'rgba(82,82,82,1)',

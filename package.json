@@ -10,6 +10,9 @@
     "flow status": "flow status",
     "flow coverage": "flow coverage"
   },
+  "rnpm": {
+    "assets": ["./assets/fonts"]
+  },
   "dependencies": {
     "@mapbox/polyline": "^1.0.0",
     "axios": "^0.18.0",

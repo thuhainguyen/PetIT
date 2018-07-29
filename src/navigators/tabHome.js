@@ -1,11 +1,8 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
-import { View, Image, TouchableOpacity, Text } from 'react-native';
-import {
-  createBottomTabNavigator,
-  TabNavigator,
-} from 'react-navigation';
-import { Icons, Colors, Icon } from '../themes';
+import { View, Image } from 'react-native';
+import { createBottomTabNavigator, TabNavigator } from 'react-navigation';
+import { icons, colors, icon } from '../themes';
 import styles from './styles';
 import HomeStack from './homeStack';
 import MapStack from './mapStack';
@@ -46,33 +43,33 @@ export default createBottomTabNavigator(
         let iconImage;
         let iconBG;
         if (routeName === 'Home') {
-          iconImage = focused ? Icons.homeFocused : Icons.home;
+          iconImage = focused ? icons.homeFocused : icons.home;
         }
         if (routeName === 'Search') {
-          iconImage = focused ? Icons.searchFocused : Icons.search;
+          iconImage = focused ? icons.searchFocused : icons.search;
         }
         if (routeName === 'Pin') {
-          iconImage = focused ? Icons.pinFocused : Icons.pin;
+          iconImage = focused ? icons.pinFocused : icons.pin;
         }
         if (routeName === 'Setting') {
           iconBG = (
             <Image
-              source={Icon.setting}
+              source={icon.setting}
               style={{
                 width: 24,
                 height: 20,
-                tintColor: focused ? Colors.default : 'grey',
+                tintColor: focused ? colors.default : 'grey',
               }}
             />
           );
         }
         if (routeName === 'Event') {
-          iconImage = focused ? Icons.notificationFocused : Icons.notification;
+          iconImage = focused ? icons.notificationFocused : icons.notification;
         } else if (routeName === 'Map') {
           iconBG = (
             <View style={styles.viewPointBG}>
               <View style={styles.viewPointBGsmall}>
-                <Image source={Icons.pointer} />
+                <Image source={icons.pointer} />
               </View>
             </View>
           );
@@ -86,15 +83,12 @@ export default createBottomTabNavigator(
       },
     }),
     initialRouteName: 'Map',
-    tabBarComponent: props =>
-      (<TabbarCustom
-        {...props}
-      />),
+    tabBarComponent: (props) => <TabbarCustom {...props} />, // eslint-disable-line
     tabBarOptions: {
       ...TabNavigator.Presets.iOSBottomTabs,
       showLabel: true,
       labelStyle: {
-        color: Colors.white,
+        color: colors.white,
       },
       style: {
         backgroundColor: 'transparent',

@@ -1,5 +1,5 @@
 import { StyleSheet, Platform } from 'react-native';
-import { Colors } from '../themes';
+import { colors } from '../themes';
 
 export default StyleSheet.create({
   viewBGTabar: {
@@ -10,7 +10,7 @@ export default StyleSheet.create({
     width: Platform.OS === 'ios' ? 56 : 32,
     height: Platform.OS === 'ios' ? 56 : 32,
     borderRadius: Platform.OS === 'ios' ? 30 : 16,
-    backgroundColor: Colors.default,
+    backgroundColor: colors.default,
     position: 'absolute',
     alignItems: 'center',
     justifyContent: 'center',
@@ -19,7 +19,7 @@ export default StyleSheet.create({
     width: Platform.OS === 'ios' ? 75 : 46,
     height: Platform.OS === 'ios' ? 75 : 46,
     borderRadius: Platform.OS === 'ios' ? 45 : 23,
-    backgroundColor: Colors.defaultOpacity,
+    backgroundColor: colors.defaultOpacity,
     position: 'absolute',
     elevation: 10,
     alignItems: 'center',

@@ -1,9 +1,8 @@
 package com.petit;
 
 import android.app.Application;
-import com.airbnb.android.react.maps.MapsPackage;
 import com.facebook.react.ReactApplication;
-import fr.bamlab.rnimageresizer.ImageResizerPackage;
+import com.airbnb.android.react.maps.MapsPackage;
 import io.invertase.firebase.RNFirebasePackage;
 import fr.bamlab.rnimageresizer.ImageResizerPackage;
 import com.BV.LinearGradient.LinearGradientPackage;

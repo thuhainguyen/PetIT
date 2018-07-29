@@ -54,6 +54,14 @@
 		CB3E1FDD62384E81A8B5D07A /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 816ED0E6351F4AEDBAFA4BD9 /* SimpleLineIcons.ttf */; };
 		354F369B221443AEAD893270 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 087B01EFF3B148ADA6619514 /* Zocial.ttf */; };
 		DD0D7E133F63447683BE3F6F /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC9534EF7104608A95FEEB3 /* libRNFirebase.a */; };
+		6492F81C1D2341EDB8002D63 /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A678D6933F5412BA8DFD09D /* libBVLinearGradient.a */; };
+		CAAE6121FCA446E78946FCBD /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30C350A02E704AFABA6F3DCC /* libAirMaps.a */; };
+		58ED50E12F6344FEB1974041 /* segoeuisl.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4300AF7AD2D64A4180A05E39 /* segoeuisl.ttf */; };
+		A1A4BB0DE85A4E7F87E6C8C0 /* seguibl.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3658B25439C4FFAB7B3F120 /* seguibl.ttf */; };
+		310796FE3C0C436EB2A8BBB1 /* seguibli.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AC82C28AC4049A9B9866461 /* seguibli.ttf */; };
+		D5A910C0B1224D7A900DDC8A /* seguili.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8C569C82C8E482B8CB32EA3 /* seguili.ttf */; };
+		A806185F383740C29AB3404C /* seguisbi.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 60B889FD1E454FF4BFD30C77 /* seguisbi.ttf */; };
+		27CDC922C2FD44C38E86486D /* seguisli.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F898E5097144C5EA6D2184C /* seguisli.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -380,6 +388,16 @@
 		087B01EFF3B148ADA6619514 /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		E402FEE3F60D438093FD93F5 /* RNFirebase.xcodeproj */ = {isa = PBXFileReference; name = "RNFirebase.xcodeproj"; path = "../node_modules/react-native-firebase/ios/RNFirebase.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		AAC9534EF7104608A95FEEB3 /* libRNFirebase.a */ = {isa = PBXFileReference; name = "libRNFirebase.a"; path = "libRNFirebase.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		385B590AAF4F403AA3E9AB80 /* BVLinearGradient.xcodeproj */ = {isa = PBXFileReference; name = "BVLinearGradient.xcodeproj"; path = "../node_modules/react-native-linear-gradient/BVLinearGradient.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		4A678D6933F5412BA8DFD09D /* libBVLinearGradient.a */ = {isa = PBXFileReference; name = "libBVLinearGradient.a"; path = "libBVLinearGradient.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		86564103A5C54DE2BCF6A5D4 /* AirMaps.xcodeproj */ = {isa = PBXFileReference; name = "AirMaps.xcodeproj"; path = "../node_modules/react-native-maps/lib/ios/AirMaps.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		30C350A02E704AFABA6F3DCC /* libAirMaps.a */ = {isa = PBXFileReference; name = "libAirMaps.a"; path = "libAirMaps.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		4300AF7AD2D64A4180A05E39 /* segoeuisl.ttf */ = {isa = PBXFileReference; name = "segoeuisl.ttf"; path = "../assets/fonts/segoeuisl.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F3658B25439C4FFAB7B3F120 /* seguibl.ttf */ = {isa = PBXFileReference; name = "seguibl.ttf"; path = "../assets/fonts/seguibl.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3AC82C28AC4049A9B9866461 /* seguibli.ttf */ = {isa = PBXFileReference; name = "seguibli.ttf"; path = "../assets/fonts/seguibli.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D8C569C82C8E482B8CB32EA3 /* seguili.ttf */ = {isa = PBXFileReference; name = "seguili.ttf"; path = "../assets/fonts/seguili.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		60B889FD1E454FF4BFD30C77 /* seguisbi.ttf */ = {isa = PBXFileReference; name = "seguisbi.ttf"; path = "../assets/fonts/seguisbi.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4F898E5097144C5EA6D2184C /* seguisli.ttf */ = {isa = PBXFileReference; name = "seguisli.ttf"; path = "../assets/fonts/seguisli.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -414,6 +432,8 @@
 				B579C4842AC14A2CB169568A /* libRNVectorIcons.a in Frameworks */,
 				E53A85AA74964D1E90363210 /* libRCTImageResizer.a in Frameworks */,
 				DD0D7E133F63447683BE3F6F /* libRNFirebase.a in Frameworks */,
+				6492F81C1D2341EDB8002D63 /* libBVLinearGradient.a in Frameworks */,
+				CAAE6121FCA446E78946FCBD /* libAirMaps.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,6 +626,8 @@
 				E52B8D06B1BA4EFBB949110B /* RNVectorIcons.xcodeproj */,
 				18D6FAA46DFD45B4B1BFE6F8 /* RCTImageResizer.xcodeproj */,
 				E402FEE3F60D438093FD93F5 /* RNFirebase.xcodeproj */,
+				385B590AAF4F403AA3E9AB80 /* BVLinearGradient.xcodeproj */,
+				86564103A5C54DE2BCF6A5D4 /* AirMaps.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -668,6 +690,12 @@
 				313D8DC1DE8240ABB6B261C2 /* Octicons.ttf */,
 				816ED0E6351F4AEDBAFA4BD9 /* SimpleLineIcons.ttf */,
 				087B01EFF3B148ADA6619514 /* Zocial.ttf */,
+				4300AF7AD2D64A4180A05E39 /* segoeuisl.ttf */,
+				F3658B25439C4FFAB7B3F120 /* seguibl.ttf */,
+				3AC82C28AC4049A9B9866461 /* seguibli.ttf */,
+				D8C569C82C8E482B8CB32EA3 /* seguili.ttf */,
+				60B889FD1E454FF4BFD30C77 /* seguisbi.ttf */,
+				4F898E5097144C5EA6D2184C /* seguisli.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1130,6 +1158,12 @@
 				E46958A76E934565B963BE4C /* Octicons.ttf in Resources */,
 				CB3E1FDD62384E81A8B5D07A /* SimpleLineIcons.ttf in Resources */,
 				354F369B221443AEAD893270 /* Zocial.ttf in Resources */,
+				58ED50E12F6344FEB1974041 /* segoeuisl.ttf in Resources */,
+				A1A4BB0DE85A4E7F87E6C8C0 /* seguibl.ttf in Resources */,
+				310796FE3C0C436EB2A8BBB1 /* seguibli.ttf in Resources */,
+				D5A910C0B1224D7A900DDC8A /* seguili.ttf in Resources */,
+				A806185F383740C29AB3404C /* seguisbi.ttf in Resources */,
+				27CDC922C2FD44C38E86486D /* seguisli.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1267,6 +1301,8 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1274,6 +1310,8 @@
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-image-resizer\ios\RCTImageResizer",
 					"$(SRCROOT)\..\node_modules\react-native-firebase\ios\RNFirebase/**",
+					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
+					"$(SRCROOT)\..\node_modules\react-native-maps\lib\ios/**",
 				);
 			};
 			name = Debug;
@@ -1298,6 +1336,8 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1305,6 +1345,8 @@
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-image-resizer\ios\RCTImageResizer",
 					"$(SRCROOT)\..\node_modules\react-native-firebase\ios\RNFirebase/**",
+					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
+					"$(SRCROOT)\..\node_modules\react-native-maps\lib\ios/**",
 				);
 			};
 			name = Release;
@@ -1330,6 +1372,8 @@
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-image-resizer\ios\RCTImageResizer",
 					"$(SRCROOT)\..\node_modules\react-native-firebase\ios\RNFirebase/**",
+					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
+					"$(SRCROOT)\..\node_modules\react-native-maps\lib\ios/**",
 				);
 			};
 			name = Debug;
@@ -1354,6 +1398,8 @@
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-image-resizer\ios\RCTImageResizer",
 					"$(SRCROOT)\..\node_modules\react-native-firebase\ios\RNFirebase/**",
+					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
+					"$(SRCROOT)\..\node_modules\react-native-maps\lib\ios/**",
 				);
 			};
 			name = Release;
@@ -1387,6 +1433,8 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1394,6 +1442,8 @@
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-image-resizer\ios\RCTImageResizer",
 					"$(SRCROOT)\..\node_modules\react-native-firebase\ios\RNFirebase/**",
+					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
+					"$(SRCROOT)\..\node_modules\react-native-maps\lib\ios/**",
 				);
 			};
 			name = Debug;
@@ -1427,6 +1477,8 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1434,6 +1486,8 @@
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-image-resizer\ios\RCTImageResizer",
 					"$(SRCROOT)\..\node_modules\react-native-firebase\ios\RNFirebase/**",
+					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
+					"$(SRCROOT)\..\node_modules\react-native-maps\lib\ios/**",
 				);
 			};
 			name = Release;
@@ -1466,6 +1520,8 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1473,6 +1529,8 @@
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-image-resizer\ios\RCTImageResizer",
 					"$(SRCROOT)\..\node_modules\react-native-firebase\ios\RNFirebase/**",
+					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
+					"$(SRCROOT)\..\node_modules\react-native-maps\lib\ios/**",
 				);
 			};
 			name = Debug;
@@ -1505,6 +1563,8 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1512,6 +1572,8 @@
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-image-resizer\ios\RCTImageResizer",
 					"$(SRCROOT)\..\node_modules\react-native-firebase\ios\RNFirebase/**",
+					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
+					"$(SRCROOT)\..\node_modules\react-native-maps\lib\ios/**",
 				);
 			};
 			name = Release;

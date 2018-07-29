@@ -1,7 +1,7 @@
 // leave off @2x/@3x
 /* eslint-disable */
 const icons = {
-    home: require('../../assets/icons/home.png'),
+  home: require('../../assets/icons/home.png'),
   homeFocused: require('../../assets/icons/homeFocused.png'),
   search: require('../../assets/icons/search.png'),
   searchFocused: require('../../assets/icons/searchFocused.png'),
@@ -9,7 +9,7 @@ const icons = {
   notificationFocused: require('../../assets/icons/notificationFocused.png'),
   pointer: require('../../assets/icons/pointer.png'),
   //   pointerFocused: require('../../assets/icons/pointerFocused.png'),
-  profile: require('../../assets/icons/profile.png'),
+  profile1: require('../../assets/icons/profile.png'),
   direct: require('../../assets/icons/direct.png'),
   back: require('../../assets/icons/back.png'),
   menu: require('../../assets/icons/menu.png'),
@@ -18,6 +18,9 @@ const icons = {
   phoneCall: require('../../assets/icons/phoneCall.png'),
   mapPin: require('../../assets/icons/mapPin.png'),
   changePassword: require('../../assets/icons/changePassword.png'),
+  // -----
+  profile: require('../../assets/icons/pet/profile.png'),
+  password: require('../../assets/icons/pet/password.png'),
 };
 
 export default icons;
