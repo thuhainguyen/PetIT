@@ -1,27 +1,43 @@
 {
   "project_info": {
-    "project_number": "408048855959",
-    "firebase_url": "https://testapp-46dc6.firebaseio.com",
-    "project_id": "testapp-46dc6",
-    "storage_bucket": "testapp-46dc6.appspot.com"
+    "project_number": "729288429446",
+    "firebase_url": "https://petit-44c3c.firebaseio.com",
+    "project_id": "petit-44c3c",
+    "storage_bucket": "petit-44c3c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:408048855959:android:5a31aeeeda867895",
+        "mobilesdk_app_id": "1:729288429446:android:5a31aeeeda867895",
         "android_client_info": {
           "package_name": "com.petit"
         }
       },
       "oauth_client": [
         {
-          "client_id": "408048855959-2j2iu0s0rq0665s72v12158q7j70fuf3.apps.googleusercontent.com",
+          "client_id": "729288429446-lrcsd9hsehr623fjt5s411tb1q377vh7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.petit",
+            "certificate_hash": "cab6b54c67eb4d7fdf764dbf1bf49ccf77d6c07b"
+          }
+        },
+        {
+          "client_id": "729288429446-uh2iimem8t6h3cd7ssc7bi31hm44n9tr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.petit",
+            "certificate_hash": "372a5f55dbaabdf8e7e7ef423fd2a060fcfdad4f"
+          }
+        },
+        {
+          "client_id": "729288429446-one14rgi3v2u4rsvj65etkc7kh7ohn4t.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAPM2bUygVJTUOQDw5OsqEf79l_EhrN4mk"
+          "current_key": "AIzaSyAQfJ3b30rFsa_9Ug2ZCu_oAjjzr98Pgys"
         }
       ],
       "services": {
@@ -29,8 +45,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "729288429446-one14rgi3v2u4rsvj65etkc7kh7ohn4t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

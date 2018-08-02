@@ -11,7 +11,9 @@
     "flow coverage": "flow coverage"
   },
   "rnpm": {
-    "assets": ["./assets/fonts"]
+    "assets": [
+      "./assets/fonts"
+    ]
   },
   "dependencies": {
     "@mapbox/polyline": "^1.0.0",

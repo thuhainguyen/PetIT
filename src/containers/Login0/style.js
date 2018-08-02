@@ -9,7 +9,7 @@ const style = StyleSheet.create({
   },
   logo: {
     width: 134 * d.ratioW,
-    height: 158 * d.ratioH,
+    height: 167 * d.ratioH,
   },
   vTop: {
     flex: 1,

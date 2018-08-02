@@ -18,9 +18,23 @@ const icons = {
   phoneCall: require('../../assets/icons/phoneCall.png'),
   mapPin: require('../../assets/icons/mapPin.png'),
   changePassword: require('../../assets/icons/changePassword.png'),
+  // ------------------------
+  connect: require('../../assets/icon/connect.png'),
+  home: require('../../assets/icon/home.png'),
+  watch: require('../../assets/icon/watch.png'),
+  soYTe: require('../../assets/icon/soYTe.png'),
+  profile: require('../../assets/icon/profile.png'),
+  setting: require('../../assets/icon/setting.png'),
+  search: require('../../assets/icon/search.png'),
+  add: require('../../assets/icon/add.png'),
+  foodIcon: require('../../assets/icon/foodIcon.png'),
+  transformIcon: require('../../assets/icon/transformIcon.png'),
+  spaIcon: require('../../assets/icon/spaIcon.png'),
+  hospitalIcon: require('../../assets/icon/hospitalIcon.png'),
   // -----
   profile: require('../../assets/icons/pet/profile.png'),
   password: require('../../assets/icons/pet/password.png'),
+  showPassword: require('../../assets/icons/pet/showPassword.png'),
 };
 
 export default icons;

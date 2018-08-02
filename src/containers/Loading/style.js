@@ -10,7 +10,7 @@ const style = StyleSheet.create({
   },
   logo: {
     width: 134 * d.ratioW,
-    height: 158 * d.ratioH,
+    height: 166 * d.ratioH,
   },
 });
 

@@ -36,6 +36,14 @@ const style = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 20,
   },
+  btnShow: {
+    position: 'absolute',
+    right: 15 * d.ratioW,
+    padding: 7 * d.ratioW,
+    justifyContent: 'center',
+    top: 0,
+    bottom: 0,
+  },
   txt: {
     fontSize: 15,
     color: colors.white,
@@ -64,7 +72,7 @@ const style = StyleSheet.create({
   input: {
     color: colors.white,
     height: '100%',
-    width: 200 * d.ratioW,
+    width: 156 * d.ratioW,
     padding: 0,
     fontSize: 14,
   },

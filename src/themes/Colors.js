@@ -5,6 +5,8 @@ const colors = {
   white: 'rgba(255,255,255,1)',
   background: 'rgba(245,245,245,1)',
   text: 'rgba(82,82,82,1)',
+  placeholderColorWhite: 'rgba(255,255,255,0.7)',
+  placeholderColorBlack: 'rgba(153,153,153,0.3)',
   textOpacity: 'rgba(153,153,153,1)',
   textOpacity6: 'rgba(153,153,153,0.6)',
   textOpacity10: 'rgba(153,153,153,0.3)',

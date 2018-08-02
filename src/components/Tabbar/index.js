@@ -1,10 +1,8 @@
 import React, { PureComponent } from 'react';
-import { View, Text } from 'react-native';
 import PropTypes from 'prop-types';
-import { BottomTabBar } from 'react-navigation-tabs';
+import { BottomTabBar } from 'react-navigation-tabs'; // eslint-disable-line
 import LinearGradient from 'react-native-linear-gradient';
-import style from './style';
-import images from '../../themes/Icons';
+import style1 from './style';
 import { Colors } from '../../themes';
 
 class Tabbar extends PureComponent {
@@ -14,10 +12,7 @@ class Tabbar extends PureComponent {
   }
 
   render() {
-    const { navigation, style } = this.props;
-    console.log('props: ', this.props);
-    console.log('navigation', navigation);
-    console.log('style', style);
+    const { style } = this.props;
     return (
       <LinearGradient
         start={{ x: 0, y: 0 }}
@@ -37,7 +32,7 @@ Tabbar.propTypes = {
 };
 
 Tabbar.defaultProps = {
-  style: style.linearGradient,
+  style: style1.linearGradient,
 };
 
 export default Tabbar;
