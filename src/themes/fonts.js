@@ -1,2 +1,2 @@
-export const SegoeUI = 'segoeuisl';
-export const SegUI = 'seguibl';
+export const Helvetica = 'helveticaneue';
+export const HelveticaLight = 'helveticaneuelight';

@@ -35,6 +35,8 @@ const icons = {
   profile: require('../../assets/icons/pet/profile.png'),
   password: require('../../assets/icons/pet/password.png'),
   showPassword: require('../../assets/icons/pet/showPassword.png'),
+  nextButton: require('../../assets/icons/pet/nextButton.png'),
+  backButton: require('../../assets/icons/pet/backButton.png'),
 };
 
 export default icons;

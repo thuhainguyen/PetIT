@@ -12,7 +12,7 @@ type Props = {
 
 const style = StyleSheet.create({
   text: {
-    fontFamily: `${fonts.SegoeUI}, ${fonts.SegUI}`,
+    fontFamily: `${fonts.Helvetica}, ${fonts.HelveticaLight}`,
     padding: 0,
     fontSize: 15,
   },

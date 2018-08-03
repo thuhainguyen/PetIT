@@ -90,7 +90,7 @@ const signup = StyleSheet.create({
     fontWeight: '600',
     fontSize: 17,
     color: colors.white,
-    fontFamily: 'Helvetica Neue, Medium',
+    fontFamily: `Helvetica Neue, ${fonts.Helvetica}, Medium`,
   },
   txtModal: {
     marginTop: 16 * d.ratioH,

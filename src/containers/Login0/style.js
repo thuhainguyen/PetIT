@@ -41,7 +41,7 @@ const style = StyleSheet.create({
   txt: {
     fontSize: 15,
     color: colors.white,
-    fontFamily: fonts.SegoeUI,
+    fontFamily: fonts.Helvetica,
     fontWeight: '600',
     padding: 0,
   },

@@ -3,6 +3,7 @@ import Login0 from '../containers/Login0';
 import Login from '../containers/Login';
 import Signup from '../containers/Signup';
 import Loading from '../containers/Loading';
+import Presentation from '../containers/Presentation';
 
 export default createStackNavigator(
   {
@@ -18,9 +19,12 @@ export default createStackNavigator(
     Login: {
       screen: Login,
     },
+    Presentation: {
+      screen: Presentation,
+    },
   },
   {
-    initialRouteName: 'Loading',
+    initialRouteName: 'Presentation',
     headerMode: 'none',
   },
 );

@@ -6,6 +6,7 @@ export default StyleSheet.create({
     width: 265 * d.ratioW,
     height: 445 * d.ratioH,
     borderRadius: 30 * d.ratioH,
+    alignItems: 'center',
   },
   view1: {
     width: 210 * d.ratioW,

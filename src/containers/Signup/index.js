@@ -224,6 +224,7 @@ class Signup extends PureComponent {
             </Custom.Text>
             <TouchableOpacity
               style={[style.btnModal, { backgroundColor: '#3B579D' }]}
+              onPress={() => this.props.navigation.navigate('Presentation')}
             >
               <Text style={style.txtBtnModal}>Facebook</Text>
             </TouchableOpacity>

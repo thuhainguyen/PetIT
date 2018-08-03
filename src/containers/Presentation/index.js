@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import { PresentCard } from '../../components';
 import style from './style';
+import { icons, iconComments } from '../../themes';
 
 type Props = {};
 
@@ -20,11 +21,23 @@ export default class Presentation extends PureComponent<Props> {
     return (
       <View style={style.container}>
         <StatusBar hidden />
-        <ScrollView style={style.scrollView}>
-          <PresentCard style={{ backgroundColor: '#665EFF' }}>
-            <Image />
-          </PresentCard>
-        </ScrollView>
+        <View style={style.scrollView}>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            <PresentCard style={style.item1}>
+              <Image source={iconComments.smile} style={style.item1Image} />
+            </PresentCard>
+            <PresentCard style={style.item2}>
+              <Image source={iconComments.ship} />
+            </PresentCard>
+            <PresentCard style={style.item3}>
+              <Image source={iconComments.love} />
+            </PresentCard>
+            <PresentCard style={style.item4}>
+              <Image source={iconComments.luxury} />
+            </PresentCard>
+          </ScrollView>
+        </View>
+
         <View style={style.vIndex}>
           <View
             style={[
@@ -59,9 +72,11 @@ export default class Presentation extends PureComponent<Props> {
             ]}
           />
         </View>
-        <TouchableOpacity style={style.btn}>
-          <Text>Tiếp</Text>
-        </TouchableOpacity>
+        <View style={style.vBottom}>
+          <TouchableOpacity style={style.btn}>
+            <Image source={icons.nextButton} />
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }

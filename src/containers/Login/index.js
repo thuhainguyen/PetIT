@@ -117,7 +117,7 @@ export default class Index extends PureComponent {
                 >
                   <Image
                     source={icons.showPassword}
-                    style={{ width: 17, height: 18 }}
+                    style={{ width: 15, height: 15 }}
                   />
                 </TouchableOpacity>
               </View>
@@ -126,7 +126,10 @@ export default class Index extends PureComponent {
           <View style={style.vBottom}>
             <View style={style.vBottom1}>
               <TouchableOpacity style={style.btn} onPress={this.login}>
-                <Custom.Text style={[style.txt, { color: colors.default }]}>
+                <Custom.Text
+                  style={[style.txt, { color: colors.default }]}
+                  onPress={this.login}
+                >
                   Đăng nhập
                 </Custom.Text>
               </TouchableOpacity>

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { BottomTabBar } from 'react-navigation-tabs'; // eslint-disable-line
 import LinearGradient from 'react-native-linear-gradient';
 import style1 from './style';
-import { Colors } from '../../themes';
+import { colors } from '../../themes';
 
 class Tabbar extends PureComponent {
   constructor(props) {
@@ -18,7 +18,7 @@ class Tabbar extends PureComponent {
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 1 }}
         locations={[0.2, 1]}
-        colors={[Colors.default, Colors.defaultOpacity]}
+        colors={[colors.default, colors.defaultOpacity]}
         style={style}
       >
         <BottomTabBar {...this.props} />

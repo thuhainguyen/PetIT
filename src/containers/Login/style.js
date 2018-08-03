@@ -47,7 +47,6 @@ const style = StyleSheet.create({
   txt: {
     fontSize: 15,
     color: colors.white,
-    fontFamily: 'segoeuisl',
     fontWeight: '600',
   },
   vInput: {

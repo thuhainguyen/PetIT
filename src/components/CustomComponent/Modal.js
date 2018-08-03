@@ -44,7 +44,7 @@ export default class Modal extends PureComponent<Props> {
       },
       () => {
         Animated.timing(this.state.animation, {
-          duration: 200,
+          duration: 170,
           toValue: 1,
         }).start();
       },
@@ -53,7 +53,7 @@ export default class Modal extends PureComponent<Props> {
 
   close = () => {
     Animated.timing(this.state.animation, {
-      duration: 200,
+      duration: 170,
       toValue: 0,
     }).start(() => {
       this.setState({

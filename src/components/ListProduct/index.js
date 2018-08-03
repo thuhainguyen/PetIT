@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { FlatList } from 'react-native';
 import PropTypes from 'prop-types';
 import ProductCard from '../ProductCard';
-import { Icon } from '../../themes';
+import { icon } from '../../themes';
 import style from './style';
 
 class ListProduct extends PureComponent {
@@ -12,15 +12,15 @@ class ListProduct extends PureComponent {
       data: [
         {
           content: 'Thức ăn và đồ chơi thú cưng',
-          icon: Icon.foodIcon,
+          icon: icon.foodIcon,
         },
         {
           content: 'Spa thú cưng',
-          icon: Icon.spaIcon,
+          icon: icon.spaIcon,
         },
         {
           content: 'Bệnh viện thú y',
-          icon: Icon.hospitalIcon,
+          icon: icon.hospitalIcon,
           iconStyle: {
             width: 54,
             height: 36,
@@ -28,7 +28,7 @@ class ListProduct extends PureComponent {
         },
         {
           content: 'Vận chuyển',
-          icon: Icon.transformIcon,
+          icon: icon.transformIcon,
           iconStyle: {
             width: 66,
             height: 31,
