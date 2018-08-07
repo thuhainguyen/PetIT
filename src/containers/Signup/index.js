@@ -8,17 +8,22 @@ import {
   Keyboard,
   TextInput,
   Text,
+  ActivityIndicator,
 } from 'react-native';
 import { connect } from 'react-redux';
 import firebase from 'react-native-firebase';
 import style from './style';
+import { setUser } from '../../actions';
 import { images, colors } from '../../themes';
 import { Custom } from '../../components';
 
 class Signup extends PureComponent {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      isSignup: false,
+      comfirmResult: null,
+    };
   }
   componentDidMount() {
     BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
@@ -32,30 +37,43 @@ class Signup extends PureComponent {
     return true;
   };
   verify = () => {
-    // firebase
-    //   .auth()
-    //   .signInWithPhoneNumber(this.phoneText)
-    //   .then((comfirmResult) => {
-    //     console.log('comfirm', comfirmResult);
-    //     comfirmResult
-    //       .confirm(this.codeInput)
-    //       .then((user) => {
-    //         console.log('user: ', user);
-    //       })
-    //       .catch((error) => {
-    //         console.log('error: ', error);
-    //       });
-    //   })
-    //   .catch((error) => {
-    //     console.log('error: ', error);
-    //   });
-    this.modalVerify.close();
-    this.modalLink.open();
+    const { comfirmResult } = this.state;
+    this.setState(
+      {
+        isSignup: true,
+      },
+      () => {
+        comfirmResult
+          .comfirm(this.codeInput)
+          .then((user) => {
+            this.setState(
+              {
+                ...user,
+                isSignup: false,
+              },
+              () => console.log('user: ', this.state.user),
+            );
+          })
+          .catch((error) => {
+            console.log('errorComfirm: ', error);
+          });
+        this.modalVerify.close();
+        this.modalLink.open();
+      },
+    );
   };
   checkInput = (): boolean => {
     console.log(this.phoneText);
     if (this.phoneText) {
-      if (this.phoneText.length < 9) return false;
+      if (this.phoneText.length < 9) {
+        return false;
+      }
+      if (!this.passwordText || !this.comfirmText) {
+        return false;
+      }
+      if (this.passwordText !== this.comfirmText) {
+        return false;
+      }
       return true;
     }
     return false;
@@ -63,42 +81,34 @@ class Signup extends PureComponent {
   signUp = () => {
     if (this.checkInput()) {
       console.log('signUp');
-      this.modalVerify.open();
-      firebase.auth().languageCode = 'vi';
-      // firebase
-      //   .auth()
-      //   .verifyPhoneNumber(this.phoneText)
-      //   .on(
-      //     'state_changed',
-      //     (phoneAuthSnapshot) => {
-      //       switch (phoneAuthSnapshot.state) {
-      //         case firebase.auth.PhoneAuthState.CODE_SENT:
-      //           console.log('code sent: ', phoneAuthSnapshot);
-      //           this.modalVerify.open();
-      //           break;
-      //         case firebase.auth.PhoneAuthState.ERROR: // or 'error'
-      //           console.log('verification error');
-      //           console.log(phoneAuthSnapshot.error);
-      //           break;
-      //         case firebase.auth.PhoneAuthState.AUTO_VERIFY_TIMEOUT: // or 'timeout'
-      //           break;
-      //         case firebase.auth.PhoneAuthState.AUTO_VERIFIED: // or 'verified'
-      //           console.log('auto verified on android');
-      //           console.log(phoneAuthSnapshot);
-      //           break;
-      //         default:
-      //           break;
-      //       }
-      //     },
-      //     (error) => {
-      //       console.log(error);
-      //       console.log(error.verificationId);
-      //     },
-      //     (phoneAuthSnapshot) => {
-      //       console.log('phoneAuth: ', phoneAuthSnapshot);
-      //     },
-      //   );
+      this.setState(
+        {
+          isSignup: true,
+        },
+        () => {
+          firebase.auth().languageCode = 'vi';
+          /* eslint-disable */
+          firebase
+            .auth()
+            .signInWithPhoneNumber(this.phoneText)
+            .then((confirmResult) =>
+              this.setState(
+                {
+                  comfirmResult,
+                  isSignup: false,
+                },
+                () => this.modalVerify.open(),
+              ),
+            )
+            .catch((error) => this.console.log('error: ', error));
+        },
+      );
+    } else {
+      this.setState({
+        isSignup: false,
+      });
     }
+    /* eslint-enable */
   };
 
   render() {
@@ -138,7 +148,7 @@ class Signup extends PureComponent {
               }}
               placeholder="Địa chỉ"
               onChangeText={(text) => {
-                this.genText = text;
+                this.addressText = text;
               }}
               style={style.input}
               returnKeyType="next"
@@ -149,7 +159,7 @@ class Signup extends PureComponent {
               }}
               placeholder="Mật khẩu"
               onChangeText={(text) => {
-                this.genText = text;
+                this.passwordText = text;
               }}
               style={style.input}
               returnKeyType="next"
@@ -160,15 +170,19 @@ class Signup extends PureComponent {
               }}
               placeholder="Nhập lại mật khẩu"
               onChangeText={(text) => {
-                this.genText = text;
+                this.comfirmText = text;
               }}
               style={style.input}
               returnKeyType="done"
             />
             <TouchableOpacity style={style.btn} onPress={this.signUp}>
-              <Custom.Text style={style.txtBtn} onPress={this.signUp}>
-                Tiếp tục
-              </Custom.Text>
+              {this.state.isSignup ? (
+                <ActivityIndicator color={colors.white} size="small" />
+              ) : (
+                <Custom.Text style={style.txtBtn} onPress={this.signUp}>
+                  Tiếp tục
+                </Custom.Text>
+              )}
             </TouchableOpacity>
             <View style={style.vBottom}>
               <Custom.Text style={style.txtBottom}>
@@ -208,9 +222,13 @@ class Signup extends PureComponent {
               }}
             />
             <TouchableOpacity style={style.btnModal} onPress={this.verify}>
-              <Custom.Text style={style.txtBtnModal} onPress={this.verify}>
-                Hoàn tất
-              </Custom.Text>
+              {this.state.isSignup ? (
+                <ActivityIndicator size="small" color={colors.white} />
+              ) : (
+                <Custom.Text style={style.txtBtnModal} onPress={this.verify}>
+                  Hoàn tất
+                </Custom.Text>
+              )}
             </TouchableOpacity>
           </Custom.Modal>
           <Custom.Modal
@@ -246,5 +264,12 @@ Signup.propTypes = {
     dispatch: PropTypes.func.isRequired,
   }).isRequired,
 };
+/* eslint-disable */
+const mapDispatchToProps = (dispatch) => ({
+  setUser: (user) => dispatch(setUser(user)),
+});
 
-export default connect()(Signup);
+export default connect(
+  null,
+  mapDispatchToProps,
+)(Signup);

@@ -1,13 +1,13 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
-import { View, Image } from 'react-native';
+import { Image, Text } from 'react-native';
 import { createBottomTabNavigator, TabNavigator } from 'react-navigation';
-import { icons, colors, icon } from '../themes';
-import styles from './styles';
+import { colors, icon, fonts } from '../themes';
 import HomeStack from './homeStack';
 import MapStack from './mapStack';
 import EventStack from './eventStack';
-import { Search, Setting } from '../containers';
+import MedicalStack from './medical';
+import { Setting } from '../containers';
 import { TabbarCustom } from '../components';
 
 export default createBottomTabNavigator(
@@ -18,7 +18,17 @@ export default createBottomTabNavigator(
         tabBarVisible: navigation.state.index === 0,
       }),
     },
-    Search,
+    Event: {
+      screen: EventStack,
+      tabBarOptions: {
+        showLabel: ({ focused }) => {
+          if (focused) {
+            return true;
+          }
+          return false;
+        },
+      },
+    },
     Map: {
       screen: MapStack,
       navigationOptions: {
@@ -32,7 +42,9 @@ export default createBottomTabNavigator(
         },
       },
     },
-    Event: EventStack,
+    Medical: {
+      screen: MedicalStack,
+    },
     Setting,
   },
   {
@@ -40,56 +52,108 @@ export default createBottomTabNavigator(
       // eslint-disable-next-line
       tabBarIcon: ({ focused }) => {
         const { routeName } = navigation.state;
-        let iconImage;
         let iconBG;
         if (routeName === 'Home') {
-          iconImage = focused ? icons.homeFocused : icons.home;
+          iconBG = (
+            <Image
+              source={icon.home}
+              style={{
+                width: focused ? 18 : 25,
+                height: focused ? 18.7 : 25.95,
+              }}
+            />
+          );
         }
-        if (routeName === 'Search') {
-          iconImage = focused ? icons.searchFocused : icons.search;
+        if (routeName === 'Event') {
+          iconBG = (
+            <Image
+              source={icon.connect}
+              style={{
+                width: focused ? 18 : 25,
+                height: focused ? 15.4 : 21.4,
+              }}
+            />
+          );
         }
-        if (routeName === 'Pin') {
-          iconImage = focused ? icons.pinFocused : icons.pin;
+        if (routeName === 'Medical') {
+          iconBG = (
+            <Image
+              source={icon.soYTe}
+              style={{
+                width: focused ? 18 : 25,
+                height: focused ? 19.03 : 26.43,
+              }}
+            />
+          );
         }
         if (routeName === 'Setting') {
           iconBG = (
             <Image
               source={icon.setting}
               style={{
-                width: 24,
-                height: 20,
-                tintColor: focused ? colors.default : 'grey',
+                width: focused ? 18 : 25,
+                height: focused ? 12.8 : 17.77,
+              }}
+            />
+          );
+        } else if (routeName === 'Map') {
+          iconBG = (
+            <Image
+              source={icon.search}
+              style={{
+                width: focused ? 18 : 25,
+                height: focused ? 16.17 : 22.45,
               }}
             />
           );
         }
-        if (routeName === 'Event') {
-          iconImage = focused ? icons.notificationFocused : icons.notification;
-        } else if (routeName === 'Map') {
-          iconBG = (
-            <View style={styles.viewPointBG}>
-              <View style={styles.viewPointBGsmall}>
-                <Image source={icons.pointer} />
-              </View>
-            </View>
-          );
+        return iconBG || null;
+      },
+      // eslint-disable-next-line
+      tabBarLabel: ({ focused }) => {
+        const { routeName } = navigation.state;
+        const style = {
+          color: colors.white,
+          textAlignVertical: 'top',
+          lineHeight: 20,
+          fontSize: 11,
+          fontFamily: fonts.Helvetica,
+        };
+        if (routeName === 'Home') {
+          if (focused) {
+            return <Text style={style}>Trang chủ</Text>;
+          }
+          return null;
         }
-        return (
-          <View style={styles.viewBGTabar}>
-            {iconBG || null}
-            <Image source={iconImage} />
-          </View>
-        );
+        if (routeName === 'Event') {
+          if (focused) {
+            return <Text style={style}>Kết nối</Text>;
+          }
+          return null;
+        }
+        if (routeName === 'Medical') {
+          if (focused) {
+            return <Text style={style}>Sổ y tế</Text>;
+          }
+          return null;
+        }
+        if (routeName === 'Setting') {
+          if (focused) {
+            return <Text style={style}>Cài đặt</Text>;
+          }
+          return null;
+        } else if (routeName === 'Map') {
+          if (focused) {
+            return <Text style={style}>Tìm kiếm</Text>;
+          }
+          return null;
+        }
       },
     }),
     initialRouteName: 'Map',
     tabBarComponent: (props) => <TabbarCustom {...props} />, // eslint-disable-line
     tabBarOptions: {
       ...TabNavigator.Presets.iOSBottomTabs,
-      showLabel: true,
-      labelStyle: {
-        color: colors.white,
-      },
       style: {
         backgroundColor: 'transparent',
         borderTopWidth: 0,
@@ -103,6 +167,7 @@ export default createBottomTabNavigator(
       },
       tabStyle: {
         backgroundColor: 'transparent',
+        alignItems: 'center',
       },
     },
   },

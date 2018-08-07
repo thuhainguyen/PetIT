@@ -1,10 +1,16 @@
 import { StyleSheet } from 'react-native';
 import * as d from '../../utilities/Tranform';
+import { colors } from '../../themes';
 
 export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#2A2E43',
+  },
+  vItem: {
+    height: '100%',
+    width: '100%',
+    alignItems: 'center',
   },
   btn: {
     backgroundColor: '#665EFF',
@@ -16,28 +22,78 @@ export default StyleSheet.create({
   },
   scrollView: {
     marginTop: 60 * d.ratioH,
+    width: '100%',
+    height: 520 * d.ratioH,
     padding: 0,
   },
   item1: {
     backgroundColor: '#665EFF',
-    marginLeft: 48 * d.ratioW,
+  },
+  txtItem1: {
+    textAlign: 'center',
+    color: colors.placeholderColorWhite,
+    lineHeight: 20 * d.ratioH,
+    marginTop: 12 * d.ratioH,
   },
   item1Image: {
-    width: 161 * d.ratioW,
-    height: 176.5 * d.ratioH,
+    width: 149 * d.ratioW,
+    height: 190 * d.ratioH,
+    marginTop: 70 * d.ratioH,
+  },
+  item1Title: {
+    fontSize: 39,
+    color: colors.white,
+    fontWeight: '600',
+    marginTop: 30.5 * d.ratioH,
+    paddingTop: 0,
+    lineHeight: 40,
   },
   item2: {
     backgroundColor: '#2AB9B9',
-    marginLeft: 21 * d.ratioW,
+  },
+  txtItem2: {
+    textAlign: 'center',
+    color: '#2A2E43',
+    opacity: 0.7,
+    lineHeight: 20 * d.ratioH,
+    marginTop: 12 * d.ratioH,
+  },
+  item2Title: {
+    fontSize: 25,
+    textAlign: 'center',
+    color: colors.white,
+    fontWeight: '600',
+    marginTop: 56 * d.ratioH,
+    paddingTop: 0,
+    lineHeight: 29 * d.ratioH,
+  },
+  item2Image: {
+    width: 253 * d.ratioW,
+    height: 146 * d.ratioH,
+    marginTop: 95.5 * d.ratioH,
   },
   item3: {
     backgroundColor: '#FF9057',
-    marginLeft: 21 * d.ratioW,
+  },
+  item3Title: {
+    color: '#2A2E43',
+    marginTop: 39 * d.ratioH,
+  },
+  item3Image: {
+    width: 155 * d.ratioW,
+    height: 180 * d.ratioH,
+    marginTop: 81 * d.ratioH,
   },
   item4: {
     backgroundColor: '#5773FF',
-    marginLeft: 21 * d.ratioW,
-    marginRight: 48 * d.ratioW,
+  },
+  item4Image: {
+    width: 207 * d.ratioW,
+    height: 183 * d.ratioH,
+    marginTop: 99 * d.ratioH,
+  },
+  item4Title: {
+    marginTop: 18 * d.ratioH,
   },
   vIndex: {
     width: '100%',
@@ -48,14 +104,11 @@ export default StyleSheet.create({
     flexDirection: 'row',
   },
   indexItem: {
-    width: 8 * d.ratioW,
-    height: 8 * d.ratioH,
-    borderRadius: 4 * d.ratioH,
     marginHorizontal: 4 * d.ratioW,
   },
   vBottom: {
-    marginTop: 20 * d.ratioH,
     width: '100%',
-    alignItems: 'center',
+    justifyContent: 'space-around',
+    flexDirection: 'row',
   },
 });

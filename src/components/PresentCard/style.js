@@ -3,7 +3,7 @@ import * as d from '../../utilities/Tranform';
 
 export default StyleSheet.create({
   container: {
-    width: 265 * d.ratioW,
+    width: 275 * d.ratioW,
     height: 445 * d.ratioH,
     borderRadius: 30 * d.ratioH,
     alignItems: 'center',
@@ -24,7 +24,7 @@ export default StyleSheet.create({
     width: 174 * d.ratioW,
     height: 174 * d.ratioH,
     borderRadius: 61 * d.ratioH,
-    backgroundColor: 'rgba(255,255,255,0.2)',
+    backgroundColor: 'rgba(255,255,255,0.12)',
     position: 'absolute',
     zIndex: 1,
   },
@@ -32,7 +32,7 @@ export default StyleSheet.create({
     width: 120 * d.ratioW,
     height: 120 * d.ratioH,
     borderRadius: 60 * d.ratioH,
-    backgroundColor: 'rgba(255,255,255,0.35)',
+    backgroundColor: 'rgba(255,255,255,0.2)',
     position: 'absolute',
     zIndex: 2,
   },
