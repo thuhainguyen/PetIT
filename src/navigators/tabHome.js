@@ -20,27 +20,9 @@ export default createBottomTabNavigator(
     },
     Event: {
       screen: EventStack,
-      tabBarOptions: {
-        showLabel: ({ focused }) => {
-          if (focused) {
-            return true;
-          }
-          return false;
-        },
-      },
     },
     Map: {
       screen: MapStack,
-      navigationOptions: {
-        title: 'Maps',
-        iconStyle: {
-          width: 100,
-          height: 100,
-          backgroundColor: 'red',
-          elevation: 10,
-          top: -10,
-        },
-      },
     },
     Medical: {
       screen: MedicalStack,

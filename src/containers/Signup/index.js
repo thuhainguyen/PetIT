@@ -65,9 +65,9 @@ class Signup extends PureComponent<Props, State> {
                 `${this.phoneText}@gmail.com`,
                 this.passwordText,
               )
-              .then(async (user) => {
+              .then((user) => {
                 console.log('user: ', user.user);
-                await this.props.setUser(user.user);
+                this.props.setUser(user.user);
                 this.modalVerify.close();
                 this.modalLink.open();
               })
@@ -396,6 +396,7 @@ Signup.propTypes = {
     goBack: PropTypes.func.isRequired,
     dispatch: PropTypes.func.isRequired,
   }).isRequired,
+  setUser: PropTypes.func.isRequired,
 };
 /* eslint-disable */
 const mapDispatchToProps = (dispatch) => ({

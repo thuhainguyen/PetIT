@@ -1,26 +1,36 @@
 import React, { PureComponent } from 'react';
-import {
-  View,
-  Text,
-} from 'react-native';
-
+import { View, Text, AsyncStorage } from 'react-native';
+import { NavigationActions } from 'react-navigation';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { NavigationActions } from 'react-navigation';
-import style from './style';
-import images from '../../themes/Icons';
+// import firebase from 'react-native-firebase';
 
 class Setting extends PureComponent {
   constructor(props) {
     super(props);
-    this.state = {
-    };
+    this.state = {};
   }
-
+  signOut = async () => {
+    await AsyncStorage.removeItem('user');
+    const resetAction = NavigationActions.navigate({
+      routeName: 'Auth',
+      action: NavigationActions.navigate({ routeName: 'Login0' }),
+    });
+    this.props.navigation.dispatch(resetAction);
+  };
   render() {
     return (
       <View style={{ flex: 1, backgroundColor: '#FFF' }}>
         <Text>Setting</Text>
+        <Text
+          style={{
+            margin: 5,
+            padding: 7,
+          }}
+          onPress={this.signOut}
+        >
+          Logout
+        </Text>
       </View>
     );
   }
@@ -28,8 +38,8 @@ class Setting extends PureComponent {
 Setting.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
-    dispatch: PropTypes.func.isRequired
-  }).isRequired
+    dispatch: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default connect()(Setting);

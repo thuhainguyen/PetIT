@@ -1,8 +1,8 @@
 import { AsyncStorage } from 'react-native';
 import * as types from '../constants/actionTypes';
 
-export const setUser = async (user: Object) => {
-  await AsyncStorage.setItem('user', JSON.stringify(user));
+export const setUser = (user: Object) => {
+  AsyncStorage.setItem('user', JSON.stringify(user));
   return {
     type: types.SET_USER,
     user,

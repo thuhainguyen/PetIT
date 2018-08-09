@@ -39,7 +39,6 @@ class Index extends PureComponent<Props, State> {
     };
   }
   async componentDidMount() {
-    console.log('didmout');
     BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
   }
   componentWillUnmount() {
@@ -81,16 +80,15 @@ class Index extends PureComponent<Props, State> {
       message: '',
       isLogin: true,
     });
-    if (this.checkInput) {
+    if (this.checkInput()) {
       firebase
         .auth()
         .signInAndRetrieveDataWithEmailAndPassword(
-          this.phoneText,
+          `${this.phoneText}@gmail.com`,
           this.passwordText,
         )
         .then(async (user) => {
-          console.log('user login: ', user.user);
-          await this.props.setUser(user.user);
+          this.props.setUser(user.user);
           this.props.navigation.navigate('Home');
         })
         .catch((error) => {
@@ -144,7 +142,9 @@ class Index extends PureComponent<Props, State> {
                   style={style.input}
                   maxLength={16}
                   placeholder="Số điện thoại của bạn ..."
-                  onChangeText={this.phoneText}
+                  onChangeText={(text) => {
+                    this.phoneText = text;
+                  }}
                   placeholderTextColor={colors.placeholderColorWhite}
                   underlineColorAndroid="transparent"
                   keyboardType="numeric"
@@ -161,7 +161,9 @@ class Index extends PureComponent<Props, State> {
                   }}
                   style={style.input}
                   placeholder="Mật khẩu ..."
-                  onChangeText={this.passwordText}
+                  onChangeText={(text) => {
+                    this.passwordText = text;
+                  }}
                   placeholderTextColor={colors.placeholderColorWhite}
                   underlineColorAndroid="transparent"
                   returnKeyType="next"
@@ -235,7 +237,7 @@ class Index extends PureComponent<Props, State> {
   }
 }
 const mapDispatchToProps = (dispatch) => ({
-  setUser: async (user) => dispatch(await setUser(user)),
+  setUser: (user) => dispatch(setUser(user)),
 });
 export default connect(
   null,

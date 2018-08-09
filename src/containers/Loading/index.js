@@ -21,10 +21,8 @@ export default class Index extends PureComponent {
   componentDidMount() {
     setTimeout(async () => {
       const tmp = await AsyncStorage.getItem('user');
-      console.log('tmp');
       if (tmp) {
         const user = JSON.parse(tmp);
-        console.log(user);
         this.props.navigation.navigate('Home', user);
       } else this.props.navigation.navigate('Login0');
     }, 250);
