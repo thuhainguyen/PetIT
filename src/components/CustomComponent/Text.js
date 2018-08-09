@@ -6,7 +6,6 @@ import { fonts } from '../../themes';
 type Props = {
   style: PropTypes.any,
   onPress: PropTypes.any,
-  onLongPress: PropTypes.any,
   children: PropTypes.any,
 };
 
@@ -19,18 +18,10 @@ const style = StyleSheet.create({
 });
 
 export default class TextCustom extends PureComponent<Props> {
-  static defaultProps = {
-    onPress: () => {},
-    onLongPress: () => {},
-  };
   state = {};
   render() {
     return (
-      <Text
-        style={[style.text, this.props.style]}
-        onPress={this.props.onPress}
-        onLongPress={this.props.onLongPress}
-      >
+      <Text {...this.props} style={[style.text, this.props.style]}>
         {this.props.children}
       </Text>
     );

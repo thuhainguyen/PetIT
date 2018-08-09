@@ -17,12 +17,27 @@ import { setUser } from '../../actions';
 import { images, colors } from '../../themes';
 import { Custom } from '../../components';
 
-class Signup extends PureComponent {
+type Props = {
+  navigation: Object,
+};
+
+type State = {
+  isSignup: boolean,
+  isComfirm: boolean,
+  comfirmCode: string,
+  message: string,
+  messageComfirm: string,
+};
+
+class Signup extends PureComponent<Props, State> {
   constructor(props) {
     super(props);
     this.state = {
       isSignup: false,
-      comfirmResult: null,
+      isComfirm: false,
+      comfirmCode: '',
+      message: '',
+      messageComfirm: '',
     };
   }
   componentDidMount() {
@@ -32,75 +47,176 @@ class Signup extends PureComponent {
     BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
   }
   handleBackPress = () => {
-    console.log('a');
     this.props.navigation.goBack();
     return true;
   };
   verify = () => {
-    const { comfirmResult } = this.state;
-    this.setState(
-      {
-        isSignup: true,
-      },
-      () => {
-        comfirmResult
-          .comfirm(this.codeInput)
-          .then((user) => {
-            this.setState(
-              {
-                ...user,
-                isSignup: false,
-              },
-              () => console.log('user: ', this.state.user),
-            );
-          })
-          .catch((error) => {
-            console.log('errorComfirm: ', error);
-          });
-        this.modalVerify.close();
-        this.modalLink.open();
-      },
-    );
-  };
-  checkInput = (): boolean => {
-    console.log(this.phoneText);
-    if (this.phoneText) {
-      if (this.phoneText.length < 9) {
-        return false;
-      }
-      if (!this.passwordText || !this.comfirmText) {
-        return false;
-      }
-      if (this.passwordText !== this.comfirmText) {
-        return false;
-      }
-      return true;
-    }
-    return false;
-  };
-  signUp = () => {
-    if (this.checkInput()) {
-      console.log('signUp');
+    const { comfirmCode } = this.state;
+    if (comfirmCode && this.codeInput) {
       this.setState(
         {
           isSignup: true,
         },
-        () => {
+        async () => {
+          if (comfirmCode === this.codeInput) {
+            await firebase
+              .auth()
+              .createUserAndRetrieveDataWithEmailAndPassword(
+                `${this.phoneText}@gmail.com`,
+                this.passwordText,
+              )
+              .then(async (user) => {
+                console.log('user: ', user.user);
+                await this.props.setUser(user.user);
+                this.modalVerify.close();
+                this.modalLink.open();
+              })
+              .catch((error) => {
+                this.setState(
+                  {
+                    isComfirm: false,
+                  },
+                  () => {
+                    const { code } = error;
+                    let message = '';
+                    switch (code) {
+                      case 'auth/email-already-in-use':
+                        message = 'Số điện thoại đã được đăng ký';
+                        break;
+                      case 'auth/invalid-email':
+                        message = 'Số điện thoại không hợp lệ';
+                        break;
+                      case 'auth/user-disabled':
+                        message = 'Tài khoản đã bị khóa';
+                        break;
+                      case 'auth/user-not-found':
+                        message = 'Số điện thoại không tồn tại';
+                        break;
+                      case 'auth/wrong-password':
+                        message = 'Mật khẩu không đúng';
+                        break;
+                      case 'auth/weak-password':
+                        message = 'Mật khẩu yếu';
+                        break;
+                      default:
+                        message = code;
+                        break;
+                    }
+                    this.setState(
+                      {
+                        message,
+                      },
+                      () => {
+                        this.modalLink.close();
+                      },
+                    );
+                  },
+                );
+              });
+            this.setState({
+              isSignup: false,
+            });
+          } else {
+            this.setState({
+              messageComfirm: 'Mã không đúng',
+              isComfirm: false,
+            });
+          }
+        },
+      );
+    } else {
+      console.log('codeInput không đúng');
+    }
+  };
+  phoneText: string;
+  tmpPhone: string;
+  passwordText: string;
+  checkInput = async (): boolean => {
+    if (this.phoneText) {
+      console.log(this.phoneText);
+      if (this.phoneText[0] === '0') {
+        this.tmpPhone = this.phoneText.replace(/0/, '+84');
+      }
+      if (this.phoneText.length < 9) {
+        await this.setState({
+          message: 'Số điện thoại không hợp lệ',
+        });
+        return false;
+      }
+      if (!this.passwordText || !this.comfirmText) {
+        await this.setState({
+          message: 'Tài khoản của bạn cần có mật khẩu',
+        });
+        return false;
+      }
+      if (this.passwordText.length < 6) {
+        await this.setState({
+          message: 'Mật khẩu cần có tối thiểu 6 kí tự',
+        });
+        return false;
+      }
+      if (this.passwordText !== this.comfirmText) {
+        await this.setState({
+          message: 'Xác nhận mật khẩu không khớp',
+        });
+        return false;
+      }
+      await this.setState({
+        message: '',
+      });
+      return true;
+    }
+    await this.setState({
+      message: 'Bạn cần phải nhập số điện thoại',
+    });
+    return false;
+  };
+
+  /**
+   * Gửi mã xác thực về số điện thoại
+   */
+  signUp = async () => {
+    await this.setState({
+      message: '',
+    });
+    const check = await this.checkInput();
+    if (check) {
+      this.setState(
+        {
+          isSignup: true,
+        },
+        async () => {
           firebase.auth().languageCode = 'vi';
-          /* eslint-disable */
-          firebase
+          await firebase
             .auth()
-            .signInWithPhoneNumber(this.phoneText)
-            .then((confirmResult) =>
-              this.setState(
-                {
-                  comfirmResult,
-                  isSignup: false,
-                },
-                () => this.modalVerify.open(),
-              ),
-            )
-            .catch((error) => this.console.log('error: ', error));
+            .verifyPhoneNumber(this.tmpPhone)
+            .on('state_changed', ({ state, code, error }) => {
+              switch (state) {
+                case firebase.auth.PhoneAuthState.CODE_SENT:
+                  console.log('code sent: ');
+                  this.modalVerify.open();
+                  this.setState({
+                    isSignup: false,
+                  });
+                  break;
+                case firebase.auth.PhoneAuthState.ERROR: // or 'error'
+                  console.log('verification error');
+                  console.log(error);
+                  break;
+                case firebase.auth.PhoneAuthState.AUTO_VERIFY_TIMEOUT: // or 'timeout'
+                  this.setState({
+                    messageComfirm: 'Hết thời gian xác thực',
+                  });
+                  break;
+                case firebase.auth.PhoneAuthState.AUTO_VERIFIED:
+                  this.setState({
+                    comfirmCode: code,
+                  });
+                  console.log('code: ', code);
+                  break;
+                default:
+              }
+            });
         },
       );
     } else {
@@ -130,6 +246,9 @@ class Signup extends PureComponent {
               }}
               style={style.input}
               returnKeyType="next"
+              keyboardType="numeric"
+              maxLength={14}
+              onSubmitEditing={() => this.gender.focus()}
             />
             <Custom.TextInput
               ref={(gen) => {
@@ -141,6 +260,7 @@ class Signup extends PureComponent {
               }}
               style={style.input}
               returnKeyType="next"
+              onSubmitEditing={() => this.address.focus()}
             />
             <Custom.TextInput
               ref={(address) => {
@@ -152,6 +272,7 @@ class Signup extends PureComponent {
               }}
               style={style.input}
               returnKeyType="next"
+              onSubmitEditing={() => this.password.focus()}
             />
             <Custom.TextInput
               ref={(pass) => {
@@ -163,6 +284,7 @@ class Signup extends PureComponent {
               }}
               style={style.input}
               returnKeyType="next"
+              onSubmitEditing={() => this.comfirmPassword.focus()}
             />
             <Custom.TextInput
               ref={(comfirm) => {
@@ -174,10 +296,16 @@ class Signup extends PureComponent {
               }}
               style={style.input}
               returnKeyType="done"
+              onSubmitEditing={this.signUp}
             />
+            {this.state.message.length > 0 ? (
+              <Custom.Text style={{ color: 'red' }}>
+                {this.state.message}
+              </Custom.Text>
+            ) : null}
             <TouchableOpacity style={style.btn} onPress={this.signUp}>
               {this.state.isSignup ? (
-                <ActivityIndicator color={colors.white} size="small" />
+                <ActivityIndicator color="#2AB9B9" size="small" />
               ) : (
                 <Custom.Text style={style.txtBtn} onPress={this.signUp}>
                   Tiếp tục
@@ -221,8 +349,13 @@ class Signup extends PureComponent {
                 this.codeInput = text;
               }}
             />
+            {this.state.messageComfirm ? (
+              <Custom.Text style={[style.txtModal, { color: 'red' }]}>
+                {this.state.messageComfirm}
+              </Custom.Text>
+            ) : null}
             <TouchableOpacity style={style.btnModal} onPress={this.verify}>
-              {this.state.isSignup ? (
+              {this.state.isComfirm ? (
                 <ActivityIndicator size="small" color={colors.white} />
               ) : (
                 <Custom.Text style={style.txtBtnModal} onPress={this.verify}>

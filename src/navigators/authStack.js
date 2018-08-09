@@ -24,7 +24,7 @@ export default createStackNavigator(
     },
   },
   {
-    initialRouteName: 'Presentation',
+    initialRouteName: 'Loading',
     headerMode: 'none',
   },
 );

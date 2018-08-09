@@ -1,5 +1,10 @@
 import React, { PureComponent } from 'react';
-import { ImageBackground, StatusBar, Animated } from 'react-native';
+import {
+  ImageBackground,
+  StatusBar,
+  Animated,
+  AsyncStorage,
+} from 'react-native';
 
 import PropTypes from 'prop-types';
 import style from './style';
@@ -14,8 +19,14 @@ export default class Index extends PureComponent {
   }
 
   componentDidMount() {
-    setTimeout(() => {
-      this.props.navigation.navigate('Login0');
+    setTimeout(async () => {
+      const tmp = await AsyncStorage.getItem('user');
+      console.log('tmp');
+      if (tmp) {
+        const user = JSON.parse(tmp);
+        console.log(user);
+        this.props.navigation.navigate('Home', user);
+      } else this.props.navigation.navigate('Login0');
     }, 250);
   }
   setAnimation = () => {

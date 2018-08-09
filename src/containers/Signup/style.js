@@ -54,7 +54,6 @@ const signup = StyleSheet.create({
   },
   modal: {
     width: 280 * d.ratioW,
-    height: 180 * d.ratioH,
     backgroundColor: colors.white,
     borderRadius: 10,
     paddingHorizontal: 35 * d.ratioW,
@@ -83,6 +82,7 @@ const signup = StyleSheet.create({
     width: 210 * d.ratioW,
     borderRadius: 17 * d.ratioH,
     marginTop: 13 * d.ratioH,
+    marginBottom: 21 * d.ratioH,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -95,7 +95,7 @@ const signup = StyleSheet.create({
   txtModal: {
     marginTop: 16 * d.ratioH,
     textAlign: 'center',
-    fontSize: 17,
+    fontSize: 15,
     width: 210 * d.ratioW,
     color: '#2A2E43',
     letterSpacing: 1,

@@ -1,11 +1,18 @@
+import { AsyncStorage } from 'react-native';
 import * as types from '../constants/actionTypes';
 
-export const setUser = user => ({
-  type: types.SET_USER,
-  user,
-});
+export const setUser = async (user: Object) => {
+  await AsyncStorage.setItem('user', JSON.stringify(user));
+  return {
+    type: types.SET_USER,
+    user,
+  };
+};
 
-export const setUserDatabase = user => ({ type: types.SET_USER_DATABASE, payload: user });
+export const setUserDatabase = (user) => ({
+  type: types.SET_USER_DATABASE,
+  payload: user,
+});
 
 export const getPositionUser = () => {
   // eslint-disable-next-line
@@ -18,7 +25,7 @@ export const getPositionUser = () => {
         data: coord,
       };
     },
-    error => ({
+    (error) => ({
       type: 'error',
       data: error,
     }),

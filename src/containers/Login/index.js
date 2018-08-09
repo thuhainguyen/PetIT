@@ -7,38 +7,42 @@ import {
   BackHandler,
   TextInput,
   Keyboard,
+  ActivityIndicator,
 } from 'react-native';
 import firebase from 'react-native-firebase';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import style from './style';
 import { images, icons, colors } from '../../themes';
 import { Custom } from '../../components';
+import { setUser } from '../../actions';
 
-export default class Index extends PureComponent {
+type Props = {
+  navigation: PropTypes.object.isRequired,
+  setUser: PropTypes.func.isRequired,
+};
+
+type State = {
+  message: PropTypes.string,
+  isShowPassword: PropTypes.bool,
+  isLogin: PropTypes.bool,
+};
+
+class Index extends PureComponent<Props, State> {
   constructor(props) {
     super(props);
     this.unsubscribe = null;
     this.state = {
-      // user: null,
-      // message: '',
-      // codeInput: '123456',
-      phoneNumber: '+841627710926',
+      message: '',
       isShowPassword: false,
-      // confirmResult: null,
+      isLogin: false,
     };
   }
-  componentDidMount() {
-    // this.unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-    //   if (user) {
-    //     this.setState({ user: user.toJSON() }, () => {
-    //       console.log('user: ', user);
-    //     });
-    //   }
-    // });
+  async componentDidMount() {
+    console.log('didmout');
     BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
   }
   componentWillUnmount() {
-    if (this.unsubscribe) this.unsubscribe();
     BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
   }
   handleBackPress = () => {
@@ -49,15 +53,72 @@ export default class Index extends PureComponent {
   signOut = () => {
     firebase.auth().signOut();
   };
-
-  login = () => {
-    console.log('login');
-    this.props.navigation.navigate('Home');
+  phoneText: string;
+  passwordText: string;
+  checkInput = async (): boolean => {
+    if (!this.phoneText) {
+      await this.setState({
+        message: 'Bạn cần nhập số điện thoại',
+      });
+      return false;
+    }
+    if (this.phoneText.length < 9) {
+      await this.setState({
+        message: 'Số điện thoại không đúng',
+      });
+      return false;
+    }
+    if (!this.passwordText || this.passwordText.length < 6) {
+      await this.setState({
+        message: 'Mật khẩu không đúng',
+      });
+      return false;
+    }
+    return true;
   };
-  changePhoneNumber = (text) => {
-    this.setState({
-      phoneNumber: text,
+  login = async () => {
+    await this.setState({
+      message: '',
+      isLogin: true,
     });
+    if (this.checkInput) {
+      firebase
+        .auth()
+        .signInAndRetrieveDataWithEmailAndPassword(
+          this.phoneText,
+          this.passwordText,
+        )
+        .then(async (user) => {
+          console.log('user login: ', user.user);
+          await this.props.setUser(user.user);
+          this.props.navigation.navigate('Home');
+        })
+        .catch((error) => {
+          const { code } = error;
+          let message = '';
+          switch (code) {
+            case 'auth/invalid-email':
+              message = 'Số điện thoại không hợp lệ';
+              break;
+            case 'auth/user-disabled':
+              message = 'Tài khoản đã bị khóa';
+              break;
+            case 'auth/user-not-found':
+              message = 'Tài khoản không tồn tại';
+              break;
+            case 'auth/wrong-password':
+              message = 'Mật khẩu không đúng';
+              break;
+            default:
+              message = 'Tài khoản hoặc mật khẩu không đúng';
+              break;
+          }
+          this.setState({
+            message,
+            isLogin: false,
+          });
+        });
+    }
   };
   render() {
     return (
@@ -83,8 +144,7 @@ export default class Index extends PureComponent {
                   style={style.input}
                   maxLength={16}
                   placeholder="Số điện thoại của bạn ..."
-                  onChangeText={this.changePhoneNumber}
-                  value={this.state.phoneNumber}
+                  onChangeText={this.phoneText}
                   placeholderTextColor={colors.placeholderColorWhite}
                   underlineColorAndroid="transparent"
                   keyboardType="numeric"
@@ -101,6 +161,7 @@ export default class Index extends PureComponent {
                   }}
                   style={style.input}
                   placeholder="Mật khẩu ..."
+                  onChangeText={this.passwordText}
                   placeholderTextColor={colors.placeholderColorWhite}
                   underlineColorAndroid="transparent"
                   returnKeyType="next"
@@ -121,17 +182,23 @@ export default class Index extends PureComponent {
                   />
                 </TouchableOpacity>
               </View>
+              {this.state.message ? (
+                <Custom.Text style={{ color: 'red' }}>
+                  {this.state.message}
+                </Custom.Text>
+              ) : null}
             </View>
           </View>
           <View style={style.vBottom}>
             <View style={style.vBottom1}>
               <TouchableOpacity style={style.btn} onPress={this.login}>
-                <Custom.Text
-                  style={[style.txt, { color: colors.default }]}
-                  onPress={this.login}
-                >
-                  Đăng nhập
-                </Custom.Text>
+                {this.state.isLogin ? (
+                  <ActivityIndicator color={colors.default} size="small" />
+                ) : (
+                  <Custom.Text style={[style.txt, { color: colors.default }]}>
+                    Đăng nhập
+                  </Custom.Text>
+                )}
               </TouchableOpacity>
               <Custom.Text
                 style={style.txtBottom}
@@ -167,9 +234,10 @@ export default class Index extends PureComponent {
     );
   }
 }
-Index.propTypes = {
-  navigation: PropTypes.shape({
-    navigate: PropTypes.func.isRequired,
-    goBack: PropTypes.func.isRequired,
-  }).isRequired,
-};
+const mapDispatchToProps = (dispatch) => ({
+  setUser: async (user) => dispatch(await setUser(user)),
+});
+export default connect(
+  null,
+  mapDispatchToProps,
+)(Index);

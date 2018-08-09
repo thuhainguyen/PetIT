@@ -115,7 +115,7 @@ export default createBottomTabNavigator(
         const style = {
           color: colors.white,
           textAlignVertical: 'top',
-          lineHeight: 20,
+          lineHeight: 22,
           fontSize: 11,
           fontFamily: fonts.Helvetica,
         };
@@ -150,7 +150,7 @@ export default createBottomTabNavigator(
         }
       },
     }),
-    initialRouteName: 'Map',
+    initialRouteName: 'Home',
     tabBarComponent: (props) => <TabbarCustom {...props} />, // eslint-disable-line
     tabBarOptions: {
       ...TabNavigator.Presets.iOSBottomTabs,

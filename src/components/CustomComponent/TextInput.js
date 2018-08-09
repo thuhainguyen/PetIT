@@ -25,27 +25,30 @@ type Props = {
   underlineColorAndroid: PropTypes.string,
   placeholderTextColor: PropTypes.string,
   returnKeyType: PropTypes.string,
+  onSubmitEditing: PropTypes.func,
 };
 
 export default class Index extends PureComponent<Props> {
   static defaultProps = {
     style: StyleSheet.create({}),
-    defaultValue: '',
     underlineColorAndroid: 'transparent',
     placeholderTextColor: colors.placeholderColorWhite,
-    returnKeyType: 'default',
+    onSubmitEditing: () => {},
   };
   state = {};
+  focus = () => {
+    this.input.focus();
+  };
   render() {
     return (
       <TextInput
-        placeholder={this.props.placeholder}
+        {...this.props}
+        ref={(node) => {
+          this.input = node;
+        }}
         placeholderTextColor={this.props.placeholderTextColor}
         style={[input.container, this.props.style]}
-        onChangeText={this.props.onChangeText}
-        defaultValue={this.props.defaultValue}
         underlineColorAndroid={this.props.underlineColorAndroid}
-        returnKeyType={this.props.returnKeyType}
       />
     );
   }
