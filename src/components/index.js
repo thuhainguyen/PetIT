@@ -6,6 +6,8 @@ import ListProduct from './ListProduct';
 import TabbarCustom from './Tabbar';
 import PresentCard from './PresentCard';
 import * as Custom from './CustomComponent';
+import PostCard from './PostCard';
+import Masonry from './Masonry';
 
 export {
   EventCard,
@@ -16,4 +18,6 @@ export {
   ListProduct,
   TabbarCustom,
   Custom,
+  PostCard,
+  Masonry,
 };

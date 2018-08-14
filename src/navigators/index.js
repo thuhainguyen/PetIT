@@ -24,12 +24,15 @@ AppWithNavigationState.propTypes = {
   navigation: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   navigation: state.navigation,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   dispatch,
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AppWithNavigationState);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(AppWithNavigationState);

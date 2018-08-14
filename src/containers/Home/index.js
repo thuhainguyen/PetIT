@@ -1,190 +1,69 @@
 import React, { PureComponent } from 'react';
-import { View, Text, RefreshControl } from 'react-native';
-
+import { View, RefreshControl, Image, BackHandler } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Masonry from 'react-native-masonry-layout';
-// import style from './style';
-// import images from '../../themes/Icons';
+import { post, user } from '../../constants/dataType';
+import { PostCard, Masonry } from '../../components';
+import { randomId } from '../../utilities/random';
+import style from './style';
+import data from './data';
+
+const PADDING_BOTTOM = 500;
 
 class Home extends PureComponent {
   state = {
     refreshing: false,
   };
   componentDidMount() {
-    this.masonry.addItems([
-      {
-        key: '12',
-        text: 'text1',
-        height: 210,
-        backgroundColor: 'red',
-      },
-      {
-        key: '13',
-        text: 'text1',
-        height: 150,
-        backgroundColor: 'yellow',
-      },
-      {
-        key: '14',
-        text: 'text1',
-        height: 170,
-        backgroundColor: 'red',
-      },
-      {
-        key: '15',
-        text: 'text1',
-        height: 200,
-        backgroundColor: 'yellow',
-      },
-      {
-        key: '16',
-        text: 'text1',
-        height: 150,
-        backgroundColor: 'red',
-      },
-      {
-        key: '17',
-        text: 'text1',
-        height: 280,
-        backgroundColor: 'blue',
-      },
-      {
-        key: '18',
-        text: 'text1',
-        height: 210,
-        backgroundColor: 'lightgreen',
-      },
-      {
-        key: '19',
-        text: 'text1',
-        height: 300,
-        backgroundColor: 'orange',
-      },
-      {
-        key: '20',
-        text: 'text1',
-        height: 100,
-        backgroundColor: 'red',
-      },
-      {
-        key: '1',
-        text: 'text1',
-        height: 200,
-        backgroundColor: 'violet',
-      },
-      {
-        key: '2',
-        text: 'text1',
-        height: 250,
-        backgroundColor: 'black',
-      },
-      {
-        key: '3',
-        text: 'text1',
-        height: 220,
-        backgroundColor: 'green',
-      },
-    ]);
+    const datas = data.post.map((item) => {
+      const tmp = item;
+      const key = randomId(20);
+      tmp.key = key;
+      return tmp;
+    });
+    this.masonry.addItems(datas);
+    this.props.navigation.setParams({
+      scrollToTop: this.scrollToTop,
+    });
+    BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
   }
-  randomId = (len: number): string => {
-    const charSet =
-      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let randomId = '';
-    for (let i = 0; i < len; i += 1) {
-      const randomPoz = Math.floor(Math.random() * charSet.length);
-      randomId += charSet.substring(randomPoz, randomPoz + 1);
+  componentWillUnmount() {
+    BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
+  }
+  offset = 0;
+  handleBackPress = () => {
+    if (this.offset > 0) {
+      this.masonry.scrollToTop();
+      return true;
     }
-    return randomId;
+    return false;
   };
-  randomColor = (): string => {
-    const charSet = '0123456789';
-    let randomColor = '#';
-    for (let i = 0; i < 6; i += 1) {
-      const randomPoz = Math.floor(Math.random() * charSet.length);
-      randomColor += charSet.substring(randomPoz, randomPoz + 1);
-    }
-    return randomColor;
+
+  refresh = () => {
+    console.log('refresh');
+    this.setState({ showMore: true }, () => {
+      const datas = data.post.map((item) => {
+        const tmp = item;
+        const key = randomId(20);
+        tmp.key = key;
+        return tmp;
+      });
+      this.masonry.addItems(datas);
+      this.setState({ showMore: false });
+    });
   };
-  randomHeight = () => Math.floor(Math.random() * 250) + 120;
-  _onRefresh = () => {
-    this.setState({ refreshing: true });
-    this.masonry.addItems([
-      {
-        key: this.randomId(20),
-        text: 'text1',
-        height: this.randomHeight(),
-        backgroundColor: this.randomColor(),
-      },
-      {
-        key: this.randomId(20),
-        text: 'text1',
-        height: this.randomHeight(),
-        backgroundColor: this.randomColor(),
-      },
-      {
-        key: this.randomId(20),
-        text: 'text1',
-        height: this.randomHeight(),
-        backgroundColor: this.randomColor(),
-      },
-      {
-        key: this.randomId(20),
-        text: 'text1',
-        height: this.randomHeight(),
-        backgroundColor: this.randomColor(),
-      },
-      {
-        key: this.randomId(20),
-        text: 'text1',
-        height: this.randomHeight(),
-        backgroundColor: this.randomColor(),
-      },
-      {
-        key: this.randomId(20),
-        text: 'text1',
-        height: this.randomHeight(),
-        backgroundColor: this.randomColor(),
-      },
-      {
-        key: this.randomId(20),
-        text: 'text1',
-        height: this.randomHeight(),
-        backgroundColor: this.randomColor(),
-      },
-      {
-        key: this.randomId(20),
-        text: 'text1',
-        height: this.randomHeight(),
-        backgroundColor: this.randomColor(),
-      },
-      {
-        key: this.randomId(20),
-        text: 'text1',
-        height: this.randomHeight(),
-        backgroundColor: this.randomColor(),
-      },
-      {
-        key: this.randomId(20),
-        text: 'text1',
-        height: this.randomHeight(),
-        backgroundColor: this.randomColor(),
-      },
-      {
-        key: this.randomId(20),
-        text: 'text1',
-        height: this.randomHeight(),
-        backgroundColor: this.randomColor(),
-      },
-      {
-        key: this.randomId(20),
-        text: 'text1',
-        height: this.randomHeight(),
-        backgroundColor: this.randomColor(),
-      },
-    ]);
-    this.setState({ refreshing: false });
-  };
+  findUser = (userId: string): Object => data.user[userId];
+  renderTop = () => (
+    <View style={{ elevation: 10 }}>
+      <Image
+        source={{
+          uri:
+            'http://spice4life.co.za/wp-content/uploads/2015/08/WFRRERGF33232.png',
+        }}
+        style={style.top}
+      />
+    </View>
+  );
   render() {
     return (
       <Masonry
@@ -197,28 +76,45 @@ class Home extends PureComponent {
             onRefresh={this._onRefresh}
           />
         }
+        style={{
+          backgroundColor: '#eeeeee',
+          marginBottom: 50,
+        }}
+        header={this.renderTop()}
         showsVerticalScrollIndicator={false}
         onScroll={(e) => {
-          let paddingToBottom = 300;
+          let paddingToBottom = PADDING_BOTTOM;
           paddingToBottom += e.nativeEvent.layoutMeasurement.height;
+          this.offset = e.nativeEvent.contentOffset.y;
           if (
             e.nativeEvent.contentOffset.y >=
             e.nativeEvent.contentSize.height - paddingToBottom
           ) {
-            this._onRefresh();
+            if (!this.state.showMore) {
+              this.refresh();
+            }
           }
         }}
-        renderItem={(item) => (
-          <View
-            style={{
-              backgroundColor: item.backgroundColor,
-              height: item.height,
-              margin: 3,
-            }}
-          >
-            <Text>{item.text}</Text>
-          </View>
-        )}
+        renderItem={(item: post) => {
+          const userItem: user = this.findUser(item.userId);
+          return (
+            <PostCard
+              key={randomId(20)}
+              item={item}
+              imageOnPress={() =>
+                this.props.navigation.navigate('PostDetail', {
+                  item,
+                  userItem,
+                })
+              }
+              avatarOnPress={() =>
+                this.props.navigation.navigate('Profile', { userItem })
+              }
+              userItem={userItem}
+              navigation={this.props.navigation}
+            />
+          );
+        }}
       />
     );
   }
@@ -227,6 +123,8 @@ Home.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
     dispatch: PropTypes.func.isRequired,
+    setParams: PropTypes.func.isRequired,
+    goBack: PropTypes.func.isRequired,
   }).isRequired,
 };
 

@@ -34,7 +34,7 @@ class Index extends PureComponent<Props, State> {
     this.unsubscribe = null;
     this.state = {
       message: '',
-      isShowPassword: false,
+      isShowPassword: true,
       isLogin: false,
     };
   }

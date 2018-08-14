@@ -13,6 +13,14 @@ const icon = {
   transformIcon: require('../../assets/icon/transformIcon.png'),
   spaIcon: require('../../assets/icon/spaIcon.png'),
   hospitalIcon: require('../../assets/icon/hospitalIcon.png'),
+  redHeart: require('../../assets/icon/redHeart.png'),
+  whiteHeart: require('../../assets/icon/whiteHeart.png'),
+  comment: require('../../assets/icon/comment.png'),
+  moreOptions: require('../../assets/icon/moreOptions.png'),
+  share: require('../../assets/icon/share.png'),
+  hide: require('../../assets/icon/hide.png'),
+  report: require('../../assets/icon/report.png'),
+  album: require('../../assets/icon/album.png'),
 };
 
 export default icon;

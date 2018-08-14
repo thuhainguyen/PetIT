@@ -3,16 +3,6 @@ import { colors } from '../../themes';
 import * as d from '../../utilities/Tranform';
 
 const style = StyleSheet.create({
-  container: {
-    flex: 1,
-    width: '100%',
-  },
-  top: {
-    borderRadius: 10,
-    width: '98%',
-    marginLeft: '1%',
-    height: 180 * d.ratioH,
-  },
   postContainer: {
     marginTop: 9,
     borderRadius: 10,

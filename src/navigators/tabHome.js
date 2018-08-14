@@ -1,6 +1,6 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
-import { Image, Text } from 'react-native';
+import { Image, Text, View } from 'react-native';
 import { createBottomTabNavigator, TabNavigator } from 'react-navigation';
 import { colors, icon, fonts } from '../themes';
 import HomeStack from './homeStack';
@@ -37,56 +37,91 @@ export default createBottomTabNavigator(
         let iconBG;
         if (routeName === 'Home') {
           iconBG = (
-            <Image
-              source={icon.home}
+            <View
               style={{
-                width: focused ? 18 : 25,
-                height: focused ? 18.7 : 25.95,
+                flex: 1,
+                justifyContent: focused ? 'flex-end' : 'center',
               }}
-            />
+            >
+              <Image
+                source={icon.home}
+                style={{
+                  width: focused ? 18 : 25,
+                  height: focused ? 18.7 : 25.95,
+                }}
+              />
+            </View>
           );
         }
         if (routeName === 'Event') {
           iconBG = (
-            <Image
-              source={icon.connect}
+            <View
               style={{
-                width: focused ? 18 : 25,
-                height: focused ? 15.4 : 21.4,
+                flex: 1,
+                justifyContent: focused ? 'flex-end' : 'center',
               }}
-            />
+            >
+              <Image
+                source={icon.connect}
+                style={{
+                  width: focused ? 18 : 25,
+                  height: focused ? 15.4 : 21.4,
+                }}
+              />
+            </View>
           );
         }
         if (routeName === 'Medical') {
           iconBG = (
-            <Image
-              source={icon.soYTe}
+            <View
               style={{
-                width: focused ? 18 : 25,
-                height: focused ? 19.03 : 26.43,
+                flex: 1,
+                justifyContent: focused ? 'flex-end' : 'center',
               }}
-            />
+            >
+              <Image
+                source={icon.soYTe}
+                style={{
+                  width: focused ? 18 : 25,
+                  height: focused ? 19.03 : 26.43,
+                }}
+              />
+            </View>
           );
         }
         if (routeName === 'Setting') {
           iconBG = (
-            <Image
-              source={icon.setting}
+            <View
               style={{
-                width: focused ? 18 : 25,
-                height: focused ? 12.8 : 17.77,
+                flex: 1,
+                justifyContent: focused ? 'flex-end' : 'center',
               }}
-            />
+            >
+              <Image
+                source={icon.setting}
+                style={{
+                  width: focused ? 18 : 25,
+                  height: focused ? 12.8 : 17.77,
+                }}
+              />
+            </View>
           );
         } else if (routeName === 'Map') {
           iconBG = (
-            <Image
-              source={icon.search}
+            <View
               style={{
-                width: focused ? 18 : 25,
-                height: focused ? 16.17 : 22.45,
+                flex: 1,
+                justifyContent: focused ? 'flex-end' : 'center',
               }}
-            />
+            >
+              <Image
+                source={icon.search}
+                style={{
+                  width: focused ? 18 : 25,
+                  height: focused ? 16.17 : 22.45,
+                }}
+              />
+            </View>
           );
         }
         return iconBG || null;

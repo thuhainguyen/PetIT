@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
   ImageBackground,
   BackHandler,
-  Keyboard,
+  ScrollView,
   TextInput,
   Text,
   ActivityIndicator,
@@ -55,7 +55,7 @@ class Signup extends PureComponent<Props, State> {
     if (comfirmCode && this.codeInput) {
       this.setState(
         {
-          isSignup: true,
+          isComfirm: true,
         },
         async () => {
           if (comfirmCode === this.codeInput) {
@@ -114,7 +114,7 @@ class Signup extends PureComponent<Props, State> {
                 );
               });
             this.setState({
-              isSignup: false,
+              isComfirm: false,
             });
           } else {
             this.setState({
@@ -136,6 +136,7 @@ class Signup extends PureComponent<Props, State> {
       console.log(this.phoneText);
       if (this.phoneText[0] === '0') {
         this.tmpPhone = this.phoneText.replace(/0/, '+84');
+        console.log(this.phoneText);
       }
       if (this.phoneText.length < 9) {
         await this.setState({
@@ -178,6 +179,7 @@ class Signup extends PureComponent<Props, State> {
   signUp = async () => {
     await this.setState({
       message: '',
+      messageComfirm: '',
     });
     const check = await this.checkInput();
     if (check) {
@@ -189,7 +191,7 @@ class Signup extends PureComponent<Props, State> {
           firebase.auth().languageCode = 'vi';
           await firebase
             .auth()
-            .verifyPhoneNumber(this.tmpPhone)
+            .verifyPhoneNumber(this.tmpPhone || this.phoneText)
             .on('state_changed', ({ state, code, error }) => {
               switch (state) {
                 case firebase.auth.PhoneAuthState.CODE_SENT:
@@ -202,6 +204,11 @@ class Signup extends PureComponent<Props, State> {
                 case firebase.auth.PhoneAuthState.ERROR: // or 'error'
                   console.log('verification error');
                   console.log(error);
+                  if (error === 'auth/unknown') {
+                    this.setState({
+                      message: 'Bạn cần kết nối mạng',
+                    });
+                  }
                   break;
                 case firebase.auth.PhoneAuthState.AUTO_VERIFY_TIMEOUT: // or 'timeout'
                   this.setState({
@@ -229,13 +236,12 @@ class Signup extends PureComponent<Props, State> {
 
   render() {
     return (
-      <TouchableOpacity
-        onPress={Keyboard.dismiss}
-        activeOpacity={1}
-        style={{ flex: 1, backgroundColor: 'transparent' }}
-      >
-        <ImageBackground source={images.background} style={style.container}>
-          <View style={style.form} behavior="padding">
+      <ImageBackground source={images.background} style={style.container}>
+        <ScrollView
+          style={{ width: '100%', height: '100%' }}
+          keyboardShouldPersistTaps="always"
+        >
+          <View style={style.form}>
             <Custom.TextInput
               ref={(phone) => {
                 this.phone = phone;
@@ -247,6 +253,11 @@ class Signup extends PureComponent<Props, State> {
               style={style.input}
               returnKeyType="next"
               keyboardType="numeric"
+              onFocus={() =>
+                this.setState({
+                  message: '',
+                })
+              }
               maxLength={14}
               onSubmitEditing={() => this.gender.focus()}
             />
@@ -283,7 +294,13 @@ class Signup extends PureComponent<Props, State> {
                 this.passwordText = text;
               }}
               style={style.input}
+              onFocus={() =>
+                this.setState({
+                  message: '',
+                })
+              }
               returnKeyType="next"
+              secureTextEntry
               onSubmitEditing={() => this.comfirmPassword.focus()}
             />
             <Custom.TextInput
@@ -291,11 +308,17 @@ class Signup extends PureComponent<Props, State> {
                 this.comfirmPassword = comfirm;
               }}
               placeholder="Nhập lại mật khẩu"
+              onFocus={() =>
+                this.setState({
+                  message: '',
+                })
+              }
               onChangeText={(text) => {
                 this.comfirmText = text;
               }}
               style={style.input}
               returnKeyType="done"
+              secureTextEntry
               onSubmitEditing={this.signUp}
             />
             {this.state.message.length > 0 ? (
@@ -331,62 +354,65 @@ class Signup extends PureComponent<Props, State> {
               </Custom.Text>
             </View>
           </View>
-          <Custom.Modal
-            ref={(modal) => {
-              this.modalVerify = modal;
+        </ScrollView>
+        <Custom.Modal
+          ref={(modal) => {
+            this.modalVerify = modal;
+          }}
+          style={style.modal}
+        >
+          <Custom.Text style={style.txtModal}>
+            Mã xác nhận đã gửi về số điện thoại của bạn, vui lòng nhập mã để
+            tiếp tục
+          </Custom.Text>
+          <TextInput
+            placeholder="Nhập mã vào đây ..."
+            style={style.inputModal}
+            underlineColorAndroid="transparent"
+            onChangeText={(text) => {
+              this.codeInput = text;
             }}
-            style={style.modal}
-          >
-            <Custom.Text style={style.txtModal}>
-              Mã xác nhận đã gửi về số điện thoại của bạn, vui lòng nhập mã để
-              tiếp tục
+          />
+          {this.state.messageComfirm ? (
+            <Custom.Text style={[style.txtModal, { color: 'red' }]}>
+              {this.state.messageComfirm}
             </Custom.Text>
-            <TextInput
-              placeholder="Nhập mã vào đây ..."
-              style={style.inputModal}
-              underlineColorAndroid="transparent"
-              onChangeText={(text) => {
-                this.codeInput = text;
-              }}
-            />
-            {this.state.messageComfirm ? (
-              <Custom.Text style={[style.txtModal, { color: 'red' }]}>
-                {this.state.messageComfirm}
+          ) : null}
+          <TouchableOpacity
+            style={style.btnModal}
+            onPress={this.state.isComfirm ? this.verify : () => {}}
+          >
+            {this.state.isComfirm ? (
+              <ActivityIndicator size="small" color={colors.white} />
+            ) : (
+              <Custom.Text style={style.txtBtnModal} onPress={this.verify}>
+                Hoàn tất
               </Custom.Text>
-            ) : null}
-            <TouchableOpacity style={style.btnModal} onPress={this.verify}>
-              {this.state.isComfirm ? (
-                <ActivityIndicator size="small" color={colors.white} />
-              ) : (
-                <Custom.Text style={style.txtBtnModal} onPress={this.verify}>
-                  Hoàn tất
-                </Custom.Text>
-              )}
-            </TouchableOpacity>
-          </Custom.Modal>
-          <Custom.Modal
-            ref={(modal) => {
-              this.modalLink = modal;
-            }}
-            style={style.modal}
+            )}
+          </TouchableOpacity>
+        </Custom.Modal>
+        <Custom.Modal
+          ref={(modal) => {
+            this.modalLink = modal;
+          }}
+          style={style.modal}
+        >
+          <Custom.Text style={style.txtModal}>
+            {'Bạn có muốn \n liên kết tài khoản không?'}
+          </Custom.Text>
+          <TouchableOpacity
+            style={[style.btnModal, { backgroundColor: '#3B579D' }]}
+            onPress={() => this.props.navigation.navigate('Presentation')}
           >
-            <Custom.Text style={style.txtModal}>
-              {'Bạn có muốn \n liên kết tài khoản không?'}
-            </Custom.Text>
-            <TouchableOpacity
-              style={[style.btnModal, { backgroundColor: '#3B579D' }]}
-              onPress={() => this.props.navigation.navigate('Presentation')}
-            >
-              <Text style={style.txtBtnModal}>Facebook</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[style.btnModal, { backgroundColor: '#F5511E' }]}
-            >
-              <Text style={style.txtBtnModal}>Google</Text>
-            </TouchableOpacity>
-          </Custom.Modal>
-        </ImageBackground>
-      </TouchableOpacity>
+            <Text style={style.txtBtnModal}>Facebook</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[style.btnModal, { backgroundColor: '#F5511E' }]}
+          >
+            <Text style={style.txtBtnModal}>Google</Text>
+          </TouchableOpacity>
+        </Custom.Modal>
+      </ImageBackground>
     );
   }
 }

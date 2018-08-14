@@ -28,7 +28,7 @@ class Tabbar extends PureComponent {
 }
 Tabbar.propTypes = {
   navigation: PropTypes.shape({}).isRequired,
-  style: PropTypes.any,
+  style: PropTypes.any, // eslint-disable-line
 };
 
 Tabbar.defaultProps = {
