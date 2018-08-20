@@ -68,7 +68,7 @@ class MapScreen extends PureComponent {
           minZoomLevel={14}
           maxZoomLevel={18}
         />
-        <SearchComponent />
+        <SearchComponent style={style.searchContainer} />
         <ListProduct
           navigation={this.props.navigation}
           style={style.viewCard}

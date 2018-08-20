@@ -131,7 +131,7 @@ export default createBottomTabNavigator(
         const { routeName } = navigation.state;
         const style = {
           color: colors.white,
-          textAlignVertical: 'top',
+          textAlign: 'center',
           lineHeight: 22,
           fontSize: 11,
           fontFamily: fonts.Helvetica,

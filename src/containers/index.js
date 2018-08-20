@@ -1,18 +1,19 @@
-import Home from './Home';
-import Login from './Login';
+import { Home, PostDetail } from './Home';
+import { Login, Login0, Loading, Signup } from './Auth';
 import Profile from './Profile';
 import Search from './Search';
-import Signup from './Signup';
 import Store from './Store';
-import PostDetail from './PostDetail';
 import MapScreen from './Map';
 import EventDetail from './EventDetail';
 import EventScreen from './EventScreen';
 import Setting from './Setting';
+import Presentation from './Presentation';
 
 export {
   Home,
   Login,
+  Login0,
+  Loading,
   Profile,
   Search,
   Signup,
@@ -22,4 +23,5 @@ export {
   EventDetail,
   EventScreen,
   Setting,
+  Presentation,
 };

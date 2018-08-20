@@ -1,19 +1,20 @@
 import { StyleSheet } from 'react-native';
-import Colors from '../../themes/Colors';
+import { colors } from '../../themes';
 
 const signup = StyleSheet.create({
   container: {
     flex: 1,
-    width: '100%',
   },
   searchContainer: {
-    backgroundColor: Colors.white,
+    backgroundColor: colors.white,
     width: '80%',
     height: 36,
     borderRadius: 18,
     position: 'absolute',
     top: 25,
     right: '10%',
+    zIndex: 100,
+    elevation: 5,
   },
   viewCard: {
     width: '100%',

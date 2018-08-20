@@ -5,10 +5,7 @@ const style = StyleSheet.create({
   container: {
     height: 32,
     width: '80%',
-    position: 'absolute',
-    top: 25,
     flexDirection: 'row',
-    right: '10%',
     borderRadius: 16,
     backgroundColor: 'white',
   },

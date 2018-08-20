@@ -17,6 +17,25 @@ export default (state = defaultState, action) => {
         ...state,
         userDatabase: action.payload,
       };
+    case types.GET_USER_ING:
+      return {
+        ...state,
+        isFetching: true,
+      };
+    case types.GET_USER_SUCCESS:
+      return {
+        ...state,
+        isFetching: false,
+        dataSuccess: true,
+        data: action.payload,
+      };
+    case types.GET_USER_FAIL:
+      return {
+        ...state,
+        isFetching: false,
+        dataSuccess: false,
+        error: true,
+      };
     default:
       return state;
   }

@@ -1,0 +1,559 @@
+{
+  "post": {
+    "fadsfdsf7756adsf": {
+      "createtime": "18/8/2018, 4:51:13 PM",
+      "photoUrl":
+        "http://spice4life.co.za/wp-content/uploads/2015/08/WFRRERGF33232.png",
+      "userId": "fsdfdsaf5345234sd",
+      "comment": [
+        {
+          "createtime": "18/8/2018, 4:51:13 PM",
+          "userId": "fsdfdsaf5345234sd",
+          "content": 1
+        },
+        {
+          "createtime": "18/8/2018, 4:51:13 PM",
+          "userId": "fsdfdsaf5345234sd",
+          "content": 3
+        },
+        {
+          "createtime": "18/8/2018, 4:51:13 PM",
+          "userId": "fdsafadfasfasdfsadfsadf",
+          "content": 2
+        }
+      ],
+      "album": "album1",
+      "react": 20
+    },
+    "gsfdgfsd4235gfsdgfd": {
+      "createtime": "18/8/2018, 4:51:13 PM",
+      "photoUrl":
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJs5V2-sLKAu0Wku5-qlXWj5gQKfu1cELJX9vlfFVZyRYmJXsU",
+      "userId": "fsdfdsaf5345234sd",
+      "react": 30,
+      "comment": []
+    },
+    "gfgsgs5345dgfsdgf": {
+      "createtime": "18/8/2018, 4:51:13 PM",
+      "photoUrl":
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJERW6CA7yt54wDliPrrcmcCtOrEUG80XAFb6qMidqhKEXNxCF",
+
+      "userId": "fdsafadfasfasdfsadfsadf",
+      "react": 20,
+      "comment": []
+    },
+    "dsadrweqr234ewqrwqer": {
+      "createtime": "18/8/2018, 4:51:13 PM",
+      "photoUrl":
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHZDEqcK3WAmmNZXSFATMlGJbCF5NPio5R7DcTGqWVdyRlykFg",
+
+      "userId": "fsdfdsaf5345234sd",
+      "react": 20,
+      "comment": []
+    },
+    "fadfadfas1312dfwer": {
+      "createtime": "18/8/2018, 4:51:13 PM",
+      "photoUrl":
+        "https://qph.fs.quoracdn.net/main-qimg-ca2e210ba678548f1f1147fb25c8e406-c",
+
+      "userId": "fdsafadfasfasdfsadfsadf",
+      "react": 50,
+      "comment": []
+    },
+    "cvaadfadf75675asd": {
+      "createtime": "18/8/2018, 4:51:13 PM",
+      "photoUrl":
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn8k7XYAHPJxGTw3BAD05umYO2GUSBf-BCyI4ZswCzO2d4O6XVPQ",
+
+      "userId": "fdsafadfasfasdfsadfsadf",
+      "react": 50,
+      "comment": []
+    },
+    "sdasfads234fasdfwer": {
+      "createtime": "18/8/2018, 4:51:13 PM",
+      "photoUrl":
+        "https://previews.123rf.com/images/wedmoscow/wedmoscow1502/wedmoscow150200073/37200247-beautiful-dog-sitting-down-isolated-over-a-white-background.jpg",
+
+      "userId": "fdsfadfasdf234sdf",
+      "react": 60,
+      "comment": []
+    },
+    "cvzvzcvsadf5435asder": {
+      "createtime": "18/8/2018, 4:51:13 PM",
+      "photoUrl":
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqn1PYLgYanrF8eXPqC3BqOIQkuwMhTHWWY-ojqReKV-V2whOWmg",
+
+      "userId": "fdsfadfasdf234sdf",
+      "react": 170,
+      "comment": []
+    },
+    "dsfasfdsaewq432rewr": {
+      "createtime": "18/8/2018, 4:51:13 PM",
+      "photoUrl":
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDDy4EyYAx0lqtJbseAc1TOWGKuexjexngGJaTvf3eqvcSlMDc",
+
+      "userId": "fdsafadfasfasdfsadfsadf",
+      "react": 100,
+      "comment": []
+    }
+  },
+  "user": {
+    "fsdfdsaf5345234sd": {
+      "createtime": "18/8/2018, 4:51:13 PM",
+      "userName": "Chiến Mạnh Vũ",
+      "address": "Ngõ 274 Trương Định, Hai Bà Trưng, Hà Nội",
+      "photoUrl":
+        "https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-9/27971714_1599014010205646_285317708007152089_n.jpg?_nc_cat=0&oh=e4c367f4c99fc757cb80a98efce42603&oe=5BFD4658",
+      "phone": "01627710926",
+      "currentLocation": {
+        "latitude": 20.988904,
+        "longitude": 105.847342
+      },
+      "followed": ["fdsafadfasfasdfsadfsadf", "fdsfadfasdf234sdf"],
+      "following": ["fdsafadfasfasdfsadfsadf"]
+    },
+    "fdsafadfasfasdfsadfsadf": {
+      "createtime": "18/8/2018, 4:51:13 PM",
+      "userName": "Giấu Tên",
+      "address": "Ngõ 274 Trương Định, Hai Bà Trưng, Hà Nội",
+      "photoUrl":
+        "https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-1/36863457_1347281165405719_4452561375645925376_n.jpg?_nc_cat=0&oh=14c3b5db3f6929ae8d117c1d49b4b673&oe=5C022B2A",
+      "phone": "01686461297",
+      "currentLocation": {
+        "latitude": 20.988904,
+        "longitude": 105.847342
+      },
+      "followed": ["fdsfadfasdf234sdf", "fsdfdsaf5345234sd"],
+      "following": ["fsdfdsaf5345234sd"]
+    },
+    "fdsfadfasdf234sdf": {
+      "createtime": "18/8/2018, 4:51:13 PM",
+      "userName": "Tran Linh",
+      "photoUrl":
+        "https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-9/38507167_1180872435401627_1655620329654976512_n.jpg?_nc_cat=0&oh=43a06efeaa27d0b99c2f95867fc678cf&oe=5BFCF1B5",
+      "phone": "01686461299",
+      "currentLocation": {
+        "latitude": 20.988904,
+        "longitude": 105.847342
+      },
+      "address": "Ngõ 274 Trương Định, Hai Bà Trưng, Hà Nội",
+      "followed": [],
+      "following": ["fdsafadfasfasdfsadfsadf", "fsdfdsaf5345234sd"],
+      "status": {
+        "enable": true,
+        "lastRequest": "18/8/2018, 4:51:13 PM"
+      }
+    }
+  },
+  "pet": {
+    "dog": {
+      "fadfasd213sdf": {
+        "createtime": "18/8/2018, 4:51:13 PM",
+        "petName": "Dog 1",
+        "birthDay": 12321312321,
+        "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg",
+        "age": "2 tuổi 3 tháng",
+        "gender": "Đực",
+        "species": "Chó Việt Nam",
+        "hairColor": "Trắng",
+        "microship": "000000",
+        "album": {
+          "album": {
+            "createtime": "17/8/2018, 4:51:13 PM",
+            "albumName": "album1",
+            "postId": []
+          }
+        },
+        "diary": [
+          {
+            "createtime": "18/8/2018, 4:51:13 PM",
+            "treatment": "Tiêm mũi 1",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "29/8/2018, 5:51:13 PM",
+            "treatment": "Tiêm mũi 2",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "29/9/2018, 5:51:13 PM",
+            "treatment": "Tiêm mũi 3",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "29/10/2018, 5:51:13 PM",
+            "treatment": "Chữa đi ngoài",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "20/11/2018, 5:51:13 PM",
+            "treatment": "Tiêm mũi 4",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          }
+        ]
+      },
+      "fadfasdcvzxasdf2": {
+        "createtime": "18/8/2018, 4:51:13 PM",
+        "petName": "Dog 2",
+        "birthDay": 12321312321,
+        "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg",
+        "age": "2 tuổi 3 tháng",
+        "gender": "Đực",
+        "species": "Chó Pháp",
+        "hairColor": "Trắng",
+        "microship": "000001",
+        "album": {
+          "album": {
+            "createtime": "17/8/2018, 4:51:13 PM",
+            "albumName": "album 1"
+          }
+        },
+        "diary": [
+          {
+            "createtime": "18/8/2018, 4:51:13 PM",
+            "treatment": "Tiêm mũi 1",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "29/8/2018, 5:51:13 PM",
+            "treatment": "Tiêm mũi 2",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "29/9/2018, 5:51:13 PM",
+            "treatment": "Tiêm mũi 3",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "29/10/2018, 5:51:13 PM",
+            "treatment": "Chữa đi ngoài",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "20/11/2018, 5:51:13 PM",
+            "treatment": "Tiêm mũi 4",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          }
+        ]
+      },
+      "fdsafasd433dsf": {
+        "createtime": "18/8/2018, 4:51:13 PM",
+        "petName": "Dog 3",
+        "birthDay": 12321312321,
+        "photoUrl": "https://i.ytimg.com/vi/NZ5RlpLGafc/hqdefault.jpg",
+        "age": "2 tuổi 3 tháng",
+        "gender": "Cái",
+        "species": "Chó Pháp",
+        "hairColor": "Vàng óng",
+        "microship": "000002",
+        "album": {
+          "album": {
+            "createtime": "17/8/2018, 4:51:13 PM",
+            "albumName": "album 1"
+          }
+        },
+        "diary": [
+          {
+            "createtime": "18/8/2018, 4:51:13 PM",
+            "treatment": "Tiêm mũi 1",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "29/8/2018, 5:51:13 PM",
+            "treatment": "Tiêm mũi 2",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "29/9/2018, 5:51:13 PM",
+            "treatment": "Tiêm mũi 3",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "29/10/2018, 5:51:13 PM",
+            "treatment": "Chữa đi ngoài",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "20/11/2018, 5:51:13 PM",
+            "treatment": "Tiêm mũi 4",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          }
+        ]
+      }
+    },
+    "cat": {
+      "fkasdklfjasd": {
+        "createtime": "18/8/2018, 4:51:13 PM",
+        "petName": "Meo 1",
+        "birthDay": 12321312321,
+        "photoUrl":
+          "http://cdn.themindcircle.com/wp-content/uploads/2016/10/worlds-most-beautiful-cats-2.jpg",
+        "age": "2 tuổi 3 tháng",
+        "gender": "Cái",
+        "species": "Mèo Pháp",
+        "hairColor": "Vàng óng",
+        "microship": "000002",
+        "album": {
+          "album": {
+            "createtime": "17/8/2018, 4:51:13 PM",
+            "albumName": "album 1"
+          }
+        },
+        "diary": [
+          {
+            "createtime": "18/8/2018, 4:51:13 PM",
+            "treatment": "Tiêm mũi 1",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "29/8/2018, 5:51:13 PM",
+            "treatment": "Tiêm mũi 2",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "29/9/2018, 5:51:13 PM",
+            "treatment": "Tiêm mũi 3",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "29/10/2018, 5:51:13 PM",
+            "treatment": "Chữa đi ngoài",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "20/11/2018, 5:51:13 PM",
+            "treatment": "Tiêm mũi 4",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          }
+        ]
+      },
+      "vzmbvaskdfusdaf": {
+        "createtime": "18/8/2018, 4:51:13 PM",
+        "petName": "Mèo 2",
+        "birthDay": 12321312321,
+        "photoUrl": "https://i.ytimg.com/vi/sBTAOqMOj0Q/maxresdefault.jpg",
+        "age": "2 tuổi 3 tháng",
+        "gender": "Cái",
+        "species": "Mèo Pháp",
+        "hairColor": "Vàng óng",
+        "microship": "000002",
+        "album": {
+          "album": {
+            "createtime": "17/8/2018, 4:51:13 PM",
+            "albumName": "album 1"
+          }
+        },
+        "diary": [
+          {
+            "createtime": "18/8/2018, 4:51:13 PM",
+            "treatment": "Tiêm mũi 1",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "29/8/2018, 5:51:13 PM",
+            "treatment": "Tiêm mũi 2",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "29/9/2018, 5:51:13 PM",
+            "treatment": "Tiêm mũi 3",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "29/10/2018, 5:51:13 PM",
+            "treatment": "Chữa đi ngoài",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "20/11/2018, 5:51:13 PM",
+            "treatment": "Tiêm mũi 4",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          }
+        ]
+      },
+      "asdfj24jsdf": {
+        "createtime": "18/8/2018, 4:51:13 PM",
+        "petName": "Mèo 3",
+        "birthDay": 12321312321,
+        "photoUrl":
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYiffwBIEi6JJwYc1nJCUpedCFObzmsPmAfEkXZ7IPNqR392BzCw",
+        "age": "2 tuổi 3 tháng",
+        "gender": "Cái",
+        "species": "Mèo Pháp",
+        "hairColor": "Vàng óng",
+        "microship": "000002",
+        "album": {
+          "album": {
+            "createtime": "17/8/2018, 4:51:13 PM",
+            "albumName": "album 1"
+          }
+        },
+        "diary": [
+          {
+            "createtime": "18/8/2018, 4:51:13 PM",
+            "treatment": "Tiêm mũi 1",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "29/8/2018, 5:51:13 PM",
+            "treatment": "Tiêm mũi 2",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "29/9/2018, 5:51:13 PM",
+            "treatment": "Tiêm mũi 3",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "29/10/2018, 5:51:13 PM",
+            "treatment": "Chữa đi ngoài",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "20/11/2018, 5:51:13 PM",
+            "treatment": "Tiêm mũi 4",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          }
+        ]
+      }
+    },
+    "fish": {
+      "fasdfasdjh21387sdf": {
+        "createtime": "18/8/2018, 4:51:13 PM",
+        "petName": "Fish 1",
+        "birthDay": 12321312321,
+        "photoUrl":
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2L19jNiIWi0mQffJN6WtwY2GExFebYvVE_uCXybEO9rv5AQ8z",
+        "age": "2 tuổi 3 tháng",
+        "gender": "Cái",
+        "species": "Cá Mỹ",
+        "hairColor": "Vàng óng",
+        "microship": "000002",
+        "album": {
+          "album": {
+            "createtime": "17/8/2018, 4:51:13 PM",
+            "albumName": "album 1"
+          }
+        },
+        "diary": [
+          {
+            "createtime": "18/8/2018, 4:51:13 PM",
+            "treatment": "Tiêm mũi 1",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "29/8/2018, 5:51:13 PM",
+            "treatment": "Tiêm mũi 2",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "29/9/2018, 5:51:13 PM",
+            "treatment": "Tiêm mũi 3",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "29/10/2018, 5:51:13 PM",
+            "treatment": "Chữa đi ngoài",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "20/11/2018, 5:51:13 PM",
+            "treatment": "Tiêm mũi 4",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          }
+        ]
+      },
+      "vcxzsaydwerjhdsaf": {
+        "createtime": "18/8/2018, 4:51:13 PM",
+        "petName": "Fish 2",
+        "birthDay": 12321312321,
+        "photoUrl":
+          "https://c1.staticflickr.com/1/472/18169694109_5226c2a4ec_b.jpg",
+        "age": "2 tuổi 3 tháng",
+        "gender": "Cái",
+        "species": "Cá Việt Nam",
+        "hairColor": "Vàng óng",
+        "microship": "000002",
+        "album": {
+          "album": {
+            "createtime": "17/8/2018, 4:51:13 PM",
+            "albumName": "album 1"
+          }
+        },
+        "diary": [
+          {
+            "createtime": "18/8/2018, 4:51:13 PM",
+            "treatment": "Tiêm mũi 1",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "29/8/2018, 5:51:13 PM",
+            "treatment": "Tiêm mũi 2",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "29/9/2018, 5:51:13 PM",
+            "treatment": "Tiêm mũi 3",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "29/10/2018, 5:51:13 PM",
+            "treatment": "Chữa đi ngoài",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "20/11/2018, 5:51:13 PM",
+            "treatment": "Tiêm mũi 4",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          }
+        ]
+      },
+      "fdas234jhfjdkhf8": {
+        "createtime": "18/8/2018, 4:51:13 PM",
+        "petName": "Fish 3",
+        "birthDay": 12321312321,
+        "photoUrl":
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAxnTY2nyNph4XEe86BRprSXgKTqNItcXvmg0ZezUJAutIwi2tkQ",
+        "age": "2 tuổi 3 tháng",
+        "gender": "Cái",
+        "species": "Cá Việt Nam",
+        "hairColor": "Vàng óng",
+        "microship": "000002",
+        "album": {
+          "album": {
+            "createtime": "17/8/2018, 4:51:13 PM",
+            "albumName": "album 1"
+          }
+        },
+        "diary": [
+          {
+            "createtime": "18/8/2018, 4:51:13 PM",
+            "treatment": "Tiêm mũi 1",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "29/8/2018, 5:51:13 PM",
+            "treatment": "Tiêm mũi 2",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "29/9/2018, 5:51:13 PM",
+            "treatment": "Tiêm mũi 3",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "29/10/2018, 5:51:13 PM",
+            "treatment": "Chữa đi ngoài",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          },
+          {
+            "createtime": "20/11/2018, 5:51:13 PM",
+            "treatment": "Tiêm mũi 4",
+            "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg"
+          }
+        ]
+      }
+    }
+  }
+}
+

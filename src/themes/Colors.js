@@ -11,6 +11,7 @@ const colors = {
   textOpacity6: 'rgba(153,153,153,0.6)',
   textOpacity10: 'rgba(153,153,153,0.3)',
   black: '#000000',
+  textShadow: 'rgba(0,0,0,0.4)',
 };
 
 export default colors;

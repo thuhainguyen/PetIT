@@ -10,8 +10,6 @@ import io.invertase.firebase.storage.RNFirebaseStoragePackage;
 import io.invertase.firebase.messaging.RNFirebaseMessagingPackage;
 import fr.bamlab.rnimageresizer.ImageResizerPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
-import com.oblador.vectoricons.VectorIconsPackage;
-import io.realm.react.RealmReactPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -39,8 +37,6 @@ public class MainApplication extends Application implements ReactApplication {
           new RNFirebaseDatabasePackage(),
           new RNFirebaseStoragePackage(),
           new RNFirebaseMessagingPackage(),
-            new VectorIconsPackage(),
-            new RealmReactPackage(),
             new LinearGradientPackage()
       );
     }

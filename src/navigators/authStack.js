@@ -1,9 +1,5 @@
 import { createStackNavigator } from 'react-navigation';
-import Login0 from '../containers/Login0';
-import Login from '../containers/Login';
-import Signup from '../containers/Signup';
-import Loading from '../containers/Loading';
-import Presentation from '../containers/Presentation';
+import { Login0, Login, Signup, Loading, Presentation } from '../containers';
 
 export default createStackNavigator(
   {
