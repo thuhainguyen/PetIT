@@ -5,7 +5,6 @@ import {
   ImageBackground,
   Image,
   TouchableOpacity,
-  AsyncStorage,
 } from 'react-native';
 
 import PropTypes from 'prop-types';
@@ -16,11 +15,6 @@ export default class Login extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {};
-  }
-
-  async componentDidMount() {
-    const test = await AsyncStorage.getItem('user');
-    console.log(test);
   }
 
   render() {

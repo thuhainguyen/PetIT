@@ -14,9 +14,6 @@ export default createBottomTabNavigator(
   {
     Home: {
       screen: HomeStack,
-      navigationOptions: ({ navigation }) => ({
-        tabBarVisible: navigation.state.index === 0,
-      }),
     },
     Event: {
       screen: EventStack,

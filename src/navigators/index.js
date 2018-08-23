@@ -23,13 +23,19 @@ class AppWithNavigationState extends React.PureComponent {
   onBackButtonPressAndroid = () => {
     const { dispatch, navigation } = this.props;
     const routeTab = navigation.routes[1];
-    if (routeTab.index === 0) {
-      const routeHome = routeTab.routes[0];
-      if (routeHome.index === 0) {
-        const { scrollToTop } = routeHome.routes[0].params;
-        return scrollToTop();
+    if (navigation.index === 1) {
+      if (routeTab.index === 0) {
+        const routeHome = routeTab.routes[0];
+        if (routeHome.index === 0) {
+          const { scrollToTop } = routeHome.routes[0].params;
+          return scrollToTop();
+        }
       }
+    } else {
+      const routeAuth = navigation.routes[0];
+      if (routeAuth.index === 1) return false;
     }
+
     dispatch(NavigationActions.back());
     return true;
   };

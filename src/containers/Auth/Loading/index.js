@@ -3,14 +3,17 @@ import {
   ImageBackground,
   StatusBar,
   Animated,
+  NetInfo,
   AsyncStorage,
+  Alert,
 } from 'react-native';
-
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import style from './style';
 import { images } from '../../../themes';
+import { getPositionUser } from '../../../actions';
 
-export default class Index extends PureComponent {
+class Loading extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,12 +23,21 @@ export default class Index extends PureComponent {
 
   componentDidMount() {
     setTimeout(async () => {
-      const tmp = await AsyncStorage.getItem('user');
-      if (tmp) {
-        const user = JSON.parse(tmp);
-        this.props.navigation.navigate('Home', user);
-      } else this.props.navigation.navigate('Login0');
+      NetInfo.isConnected.fetch().then((isConnected) => {
+        this.handleFirstConnectivityChange(isConnected);
+      });
+      NetInfo.isConnected.addEventListener(
+        'connectionChange',
+        this.handleFirstConnectivityChange,
+      );
+      this.props.getPositionUser();
     }, 250);
+  }
+  componentWillUnmount() {
+    NetInfo.isConnected.removeEventListener(
+      'connectionChange',
+      this.handleFirstConnectivityChange,
+    );
   }
   setAnimation = () => {
     const ani1 = Animated.timing(this.state.opacity, {
@@ -38,6 +50,22 @@ export default class Index extends PureComponent {
     });
     Animated.sequence([ani1, ani2]).start(this.setAnimation);
   };
+  handleFirstConnectivityChange = async (isConnected) => {
+    if (!isConnected) {
+      Alert.alert('Nhắc nhở', 'Bạn cần kết nối internet để sử dụng ứng dụng.', [
+        { text: 'Đồng ý' },
+      ]);
+    } else {
+      const tmp = await AsyncStorage.getItem('user');
+      if (tmp) {
+        const user = JSON.parse(tmp);
+        this.props.navigation.navigate('Home', user);
+      } else {
+        this.props.navigation.navigate('Login0');
+      }
+    }
+  };
+
   render() {
     return (
       <ImageBackground source={images.background} style={style.container}>
@@ -55,8 +83,14 @@ export default class Index extends PureComponent {
     );
   }
 }
-Index.propTypes = {
+Loading.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
+  getPositionUser: PropTypes.func.isRequired,
 };
+
+export default connect(
+  null,
+  { getPositionUser },
+)(Loading);

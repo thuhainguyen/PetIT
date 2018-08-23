@@ -1,7 +1,7 @@
 import firebase from 'react-native-firebase';
 import * as types from '../constants/actionTypes';
 import { randomId } from '../utilities/random';
-import { getUserOther } from '.';
+import { getUserOther } from './user';
 
 const getPost = () => ({
   type: types.GET_POST_ING,

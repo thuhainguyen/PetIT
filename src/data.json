@@ -149,6 +149,7 @@
     "dog": {
       "fadfasd213sdf": {
         "createtime": "18/8/2018, 4:51:13 PM",
+        "userId": "fdsafadfasfasdfsadfsadf",
         "petName": "Dog 1",
         "birthDay": 12321312321,
         "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg",
@@ -195,6 +196,7 @@
       "fadfasdcvzxasdf2": {
         "createtime": "18/8/2018, 4:51:13 PM",
         "petName": "Dog 2",
+        "userId": "fdsafadfasfasdfsadfsadf",
         "birthDay": 12321312321,
         "photoUrl": "https://i.ytimg.com/vi/oKiYd8hDFoc/hqdefault.jpg",
         "age": "2 tuổi 3 tháng",
@@ -239,6 +241,7 @@
       "fdsafasd433dsf": {
         "createtime": "18/8/2018, 4:51:13 PM",
         "petName": "Dog 3",
+        "userId": "fdsafadfasfasdfsadfsadf",
         "birthDay": 12321312321,
         "photoUrl": "https://i.ytimg.com/vi/NZ5RlpLGafc/hqdefault.jpg",
         "age": "2 tuổi 3 tháng",
@@ -285,6 +288,7 @@
       "fkasdklfjasd": {
         "createtime": "18/8/2018, 4:51:13 PM",
         "petName": "Meo 1",
+        "userId": "fdsafadfasfasdfsadfsadf",
         "birthDay": 12321312321,
         "photoUrl":
           "http://cdn.themindcircle.com/wp-content/uploads/2016/10/worlds-most-beautiful-cats-2.jpg",
@@ -330,6 +334,7 @@
       "vzmbvaskdfusdaf": {
         "createtime": "18/8/2018, 4:51:13 PM",
         "petName": "Mèo 2",
+        "userId": "fdsafadfasfasdfsadfsadf",
         "birthDay": 12321312321,
         "photoUrl": "https://i.ytimg.com/vi/sBTAOqMOj0Q/maxresdefault.jpg",
         "age": "2 tuổi 3 tháng",
@@ -374,6 +379,7 @@
       "asdfj24jsdf": {
         "createtime": "18/8/2018, 4:51:13 PM",
         "petName": "Mèo 3",
+        "userId": "fdsafadfasfasdfsadfsadf",
         "birthDay": 12321312321,
         "photoUrl":
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYiffwBIEi6JJwYc1nJCUpedCFObzmsPmAfEkXZ7IPNqR392BzCw",
@@ -421,6 +427,7 @@
       "fasdfasdjh21387sdf": {
         "createtime": "18/8/2018, 4:51:13 PM",
         "petName": "Fish 1",
+        "userId": "fdsafadfasfasdfsadfsadf",
         "birthDay": 12321312321,
         "photoUrl":
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2L19jNiIWi0mQffJN6WtwY2GExFebYvVE_uCXybEO9rv5AQ8z",
@@ -466,6 +473,7 @@
       "vcxzsaydwerjhdsaf": {
         "createtime": "18/8/2018, 4:51:13 PM",
         "petName": "Fish 2",
+        "userId": "fdsafadfasfasdfsadfsadf",
         "birthDay": 12321312321,
         "photoUrl":
           "https://c1.staticflickr.com/1/472/18169694109_5226c2a4ec_b.jpg",
@@ -511,6 +519,7 @@
       "fdas234jhfjdkhf8": {
         "createtime": "18/8/2018, 4:51:13 PM",
         "petName": "Fish 3",
+        "userId": "fdsafadfasfasdfsadfsadf",
         "birthDay": 12321312321,
         "photoUrl":
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAxnTY2nyNph4XEe86BRprSXgKTqNItcXvmg0ZezUJAutIwi2tkQ",

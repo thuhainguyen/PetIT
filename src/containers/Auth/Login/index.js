@@ -4,7 +4,6 @@ import {
   ImageBackground,
   Image,
   TouchableOpacity,
-  BackHandler,
   TextInput,
   Keyboard,
   ActivityIndicator,
@@ -38,20 +37,7 @@ class Index extends PureComponent<Props, State> {
       isLogin: false,
     };
   }
-  async componentDidMount() {
-    BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
-  }
-  componentWillUnmount() {
-    BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
-  }
-  handleBackPress = () => {
-    this.props.navigation.goBack();
-    return true;
-  };
 
-  signOut = () => {
-    firebase.auth().signOut();
-  };
   phoneText: string;
   passwordText: string;
   checkInput = async (): boolean => {
