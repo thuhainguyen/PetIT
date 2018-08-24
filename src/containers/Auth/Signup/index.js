@@ -4,18 +4,16 @@ import {
   View,
   TouchableOpacity,
   ImageBackground,
-  BackHandler,
   ScrollView,
   TextInput,
-  Text,
   ActivityIndicator,
 } from 'react-native';
 import { connect } from 'react-redux';
 import firebase from 'react-native-firebase';
 import style from './style';
-import { setUser } from '../../../actions';
 import { images, colors } from '../../../themes';
 import { Custom } from '../../../components';
+import { checkInput, checkCode } from './check';
 
 type Props = {
   navigation: Object,
@@ -40,16 +38,9 @@ class Signup extends PureComponent<Props, State> {
       messageComfirm: '',
     };
   }
-  componentDidMount() {
-    BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
-  }
-  componentWillUnmount() {
-    BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
-  }
-  handleBackPress = () => {
-    this.props.navigation.goBack();
-    return true;
-  };
+  /* eslint-disable */
+
+  /* eslint-enable */
   verify = () => {
     const { comfirmCode } = this.state;
     if (comfirmCode && this.codeInput) {
@@ -66,12 +57,22 @@ class Signup extends PureComponent<Props, State> {
                 this.passwordText,
               )
               .then((user) => {
-                console.log('user: ', user.user);
-                const tmp = user.user;
-                tmp.phone = this.phoneText;
+                const tmp = {
+                  id: user.user.uid,
+                  phone: this.phoneText,
+                  photoUrl: '',
+                  createtime: user.user.metadata.creationTime,
+                  name: this.phoneText,
+                  followed: [],
+                  following: [],
+                  gender: this.genText,
+                  address: this.addressText,
+                  location: this.props.location,
+                };
                 this.user = tmp;
+                console.log('usertmp: ', this.user);
                 this.modalVerify.close();
-                this.modalLink.open();
+                this.props.navigation.navigate('LinkApp', { user: this.user });
               })
               .catch((error) => {
                 this.setState(
@@ -80,36 +81,14 @@ class Signup extends PureComponent<Props, State> {
                   },
                   () => {
                     const { code } = error;
-                    let message = '';
-                    switch (code) {
-                      case 'auth/email-already-in-use':
-                        message = 'Số điện thoại đã được đăng ký';
-                        break;
-                      case 'auth/invalid-email':
-                        message = 'Số điện thoại không hợp lệ';
-                        break;
-                      case 'auth/user-disabled':
-                        message = 'Tài khoản đã bị khóa';
-                        break;
-                      case 'auth/user-not-found':
-                        message = 'Số điện thoại không tồn tại';
-                        break;
-                      case 'auth/wrong-password':
-                        message = 'Mật khẩu không đúng';
-                        break;
-                      case 'auth/weak-password':
-                        message = 'Mật khẩu yếu';
-                        break;
-                      default:
-                        message = code;
-                        break;
-                    }
+                    console.log('error verifier: ', error);
+                    const message = checkCode(code);
                     this.setState(
                       {
                         message,
                       },
                       () => {
-                        this.modalLink.close();
+                        this.modalVerify.close();
                       },
                     );
                   },
@@ -120,144 +99,118 @@ class Signup extends PureComponent<Props, State> {
             });
           } else {
             this.setState({
-              messageComfirm: 'Mã không đúng',
+              messageComfirm: 'Mã xác nhận không đúng',
               isComfirm: false,
             });
           }
         },
       );
     } else {
-      console.log('codeInput không đúng');
+      this.setState({
+        messageComfirm: 'Mã xác nhận không đúng',
+        isComfirm: false,
+      });
     }
   };
   phoneText: string;
   tmpPhone: string;
   passwordText: string;
-  checkInput = async (): boolean => {
-    if (this.phoneText) {
-      console.log(this.phoneText);
-      if (this.phoneText[0] === '0') {
-        this.tmpPhone = this.phoneText.replace(/0/, '+84');
-        console.log(this.phoneText);
-      }
-      if (this.phoneText.length < 9) {
-        await this.setState({
-          message: 'Số điện thoại không hợp lệ',
-        });
-        return false;
-      }
-      if (!this.passwordText || !this.comfirmText) {
-        await this.setState({
-          message: 'Tài khoản của bạn cần có mật khẩu',
-        });
-        return false;
-      }
-      if (this.passwordText.length < 6) {
-        await this.setState({
-          message: 'Mật khẩu cần có tối thiểu 6 kí tự',
-        });
-        return false;
-      }
-      if (this.passwordText !== this.comfirmText) {
-        await this.setState({
-          message: 'Xác nhận mật khẩu không khớp',
-        });
-        return false;
-      }
-      await this.setState({
-        message: '',
-      });
-      return true;
-    }
-    await this.setState({
-      message: 'Bạn cần phải nhập số điện thoại',
-    });
-    return false;
-  };
 
   /**
    * Gửi mã xác thực về số điện thoại
    */
+  sendCodeToPhone = () => {
+    this.setState(
+      {
+        isSignup: true,
+      },
+      async () => {
+        firebase.auth().languageCode = 'vi';
+        await firebase
+          .auth()
+          .verifyPhoneNumber(this.tmpPhone)
+          .on('state_changed', ({ state, code, error }) => {
+            switch (state) {
+              case firebase.auth.PhoneAuthState.CODE_SENT:
+                this.modalVerify.open();
+                this.setState({
+                  isSignup: false,
+                  comfirmCode: code,
+                });
+                break;
+              case firebase.auth.PhoneAuthState.ERROR: // or 'error'
+                console.log('verification error');
+                console.log(error);
+                if (error === 'auth/unknown') {
+                  this.setState({
+                    message: 'Bạn cần kết nối mạng',
+                    isSignup: false,
+                  });
+                }
+                break;
+              case firebase.auth.PhoneAuthState.AUTO_VERIFY_TIMEOUT: // or 'timeout'
+                this.setState(
+                  {
+                    message: 'Đã hết thời gian xác thực, vui lòng thử lại',
+                    isSignup: false,
+                  },
+                  () => this.modalVerify.close(),
+                );
+                break;
+              case firebase.auth.PhoneAuthState.AUTO_VERIFIED:
+                console.log('aaaa');
+                this.setState({
+                  comfirmCode: code,
+                });
+                console.log('code: ', code);
+                break;
+              default:
+            }
+          });
+      },
+    );
+  };
   signUp = async () => {
     await this.setState({
       message: '',
       messageComfirm: '',
+      isSignup: true,
     });
-    const check = await this.checkInput();
-    if (check) {
-      this.setState(
-        {
-          isSignup: true,
-        },
-        async () => {
-          firebase.auth().languageCode = 'vi';
-          await firebase
-            .auth()
-            .verifyPhoneNumber(this.tmpPhone || this.phoneText)
-            .on('state_changed', ({ state, code, error }) => {
-              switch (state) {
-                case firebase.auth.PhoneAuthState.CODE_SENT:
-                  console.log('code sent: ');
-                  this.modalVerify.open();
-                  this.setState({
-                    isSignup: false,
-                  });
-                  break;
-                case firebase.auth.PhoneAuthState.ERROR: // or 'error'
-                  console.log('verification error');
-                  console.log(error);
-                  if (error === 'auth/unknown') {
-                    this.setState({
-                      message: 'Bạn cần kết nối mạng',
-                    });
-                  }
-                  break;
-                case firebase.auth.PhoneAuthState.AUTO_VERIFY_TIMEOUT: // or 'timeout'
-                  this.setState({
-                    messageComfirm: 'Hết thời gian xác thực',
-                  });
-                  break;
-                case firebase.auth.PhoneAuthState.AUTO_VERIFIED:
-                  this.setState({
-                    comfirmCode: code,
-                  });
-                  console.log('code: ', code);
-                  break;
-                default:
-              }
-            });
-        },
-      );
+    const { result, message } = checkInput(
+      this.phoneText,
+      this.passwordText,
+      this.comfirmText,
+    );
+    if (result) {
+      this.tmpPhone = this.phoneText.replace(/0/, '+84');
+      const query = firebase
+        .database()
+        .ref('user')
+        .orderByChild('phone')
+        .equalTo(this.phoneText);
+      const queryResult = await query.once('value');
+      if (queryResult.val() === null) {
+        this.sendCodeToPhone();
+      } else {
+        this.setState({
+          isSignup: false,
+          message: 'Số điện thoại của bạn đã được đăng kí!',
+        });
+      }
     } else {
       this.setState({
         isSignup: false,
+        message,
       });
     }
-    /* eslint-enable */
   };
-  // getFacebookInfo = () => {
-  //   LoginManager.logInWithReadPermissions(['public_profile', 'user_friends', 'email']).then(
-  //     (result) => {
-  //       if (result.isCancelled) {
-  //         Alert.alert('Whoops!', 'You cancelled the sign in.');
-  //       } else {
-  //         AccessToken.getCurrentAccessToken().then(async (data) => {
-  //           const credential = firebase.auth.FacebookAuthProvider.credential(data.accessToken);
-  //           this._getInfoFb(credential);
-  //         });
-  //       }
-  //     },
-  //     (error) => {
-  //       Alert.alert('Sign in error', error);
-  //     },
-  //   );
-  // };
+
   render() {
     return (
       <ImageBackground source={images.background} style={style.container}>
         <ScrollView
           style={{ width: '100%', height: '100%' }}
-          keyboardShouldPersistTaps="always"
+          keyboardShouldPersistTaps="handled"
         >
           <View style={style.form}>
             <Custom.TextInput
@@ -344,13 +297,15 @@ class Signup extends PureComponent<Props, State> {
                 {this.state.message}
               </Custom.Text>
             ) : null}
-            <TouchableOpacity style={style.btn} onPress={this.signUp}>
+            <TouchableOpacity
+              style={style.btn}
+              // onPress={this.getFacebookInfo}
+              onPress={this.signUp}
+            >
               {this.state.isSignup ? (
                 <ActivityIndicator color="#2AB9B9" size="small" />
               ) : (
-                <Custom.Text style={style.txtBtn} onPress={this.signUp}>
-                  Tiếp tục
-                </Custom.Text>
+                <Custom.Text style={style.txtBtn}>Tiếp tục</Custom.Text>
               )}
             </TouchableOpacity>
             <View style={style.vBottom}>
@@ -390,6 +345,10 @@ class Signup extends PureComponent<Props, State> {
             onChangeText={(text) => {
               this.codeInput = text;
             }}
+            onFocus={() => {
+              this.codeInput = '';
+            }}
+            onSubmitEditing={this.verify}
           />
           {this.state.messageComfirm ? (
             <Custom.Text style={[style.txtModal, { color: 'red' }]}>
@@ -398,36 +357,15 @@ class Signup extends PureComponent<Props, State> {
           ) : null}
           <TouchableOpacity
             style={style.btnModal}
-            onPress={this.state.isComfirm ? this.verify : () => {}}
+            onPress={!this.state.isComfirm ? this.verify : () => {}}
           >
             {this.state.isComfirm ? (
               <ActivityIndicator size="small" color={colors.white} />
             ) : (
               <Custom.Text style={style.txtBtnModal} onPress={this.verify}>
-                Hoàn tất
+                Tiếp tục
               </Custom.Text>
             )}
-          </TouchableOpacity>
-        </Custom.Modal>
-        <Custom.Modal
-          ref={(modal) => {
-            this.modalLink = modal;
-          }}
-          style={style.modal}
-        >
-          <Custom.Text style={style.txtModal}>
-            {'Bạn có muốn \n liên kết tài khoản không?'}
-          </Custom.Text>
-          <TouchableOpacity
-            style={[style.btnModal, { backgroundColor: '#3B579D' }]}
-            onPress={() => this.props.navigation.navigate('Presentation')}
-          >
-            <Text style={style.txtBtnModal}>Facebook</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[style.btnModal, { backgroundColor: '#F5511E' }]}
-          >
-            <Text style={style.txtBtnModal}>Google</Text>
           </TouchableOpacity>
         </Custom.Modal>
       </ImageBackground>
@@ -440,13 +378,12 @@ Signup.propTypes = {
     goBack: PropTypes.func.isRequired,
     dispatch: PropTypes.func.isRequired,
   }).isRequired,
+  location: PropTypes.object.isRequired,
 };
 /* eslint-disable */
-const mapDispatchToProps = (dispatch) => ({
-  setUser: (user) => dispatch(setUser(user)),
+
+const mapStateToProps = (state) => ({
+  location: state.location,
 });
 
-export default connect(
-  null,
-  mapDispatchToProps,
-)(Signup);
+export default connect(mapStateToProps)(Signup);

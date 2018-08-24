@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
-import * as d from '../../utilities/Tranform';
-import { colors } from '../../themes';
+import * as d from '../../../utilities/Tranform';
+import { colors } from '../../../themes';
 
 export default StyleSheet.create({
   container: {

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">PetIT</string>
+    <!-- <string name="facebook_app_id">2267572406804444</string>
+<string name="fb_login_protocol_scheme">fb2267572406804444</string> -->
+    <string name="facebook_app_id">2267572406804444</string>
+    <string name="fb_login_protocol_scheme">fb2267572406804444</string>
 </resources>

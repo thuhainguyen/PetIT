@@ -70,6 +70,16 @@
 		<string>seguili.ttf</string>
 		<string>seguisbi.ttf</string>
 		<string>seguisli.ttf</string>
+		<string>helveticaneue.ttf</string>
+		<string>helveticaneuebolditalic.ttf</string>
+		<string>helveticaneuecondensedblack.ttf</string>
+		<string>helveticaneuecondensedbold.ttf</string>
+		<string>helveticaneueitalic.ttf</string>
+		<string>helveticaneuelight.ttf</string>
+		<string>helveticaneuelightitalic.ttf</string>
+		<string>helveticaneuemedium.ttf</string>
+		<string>helveticaneueultralight.ttf</string>
+		<string>helveticaneueultralightitalic.ttf</string>
 	</array>
 </dict>
 </plist>

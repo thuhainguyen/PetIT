@@ -1,4 +1,4 @@
-import { AsyncStorage } from 'react-native';
+import { AsyncStorage, PermissionsAndroid } from 'react-native';
 import firebase from 'react-native-firebase';
 import * as types from '../constants/actionTypes';
 
@@ -40,20 +40,30 @@ export const getUserOther = async (userId) => {
   }
 };
 
-export const getPositionUser = () => {
+export const getPositionUser = () => (dispatch) => {
   // eslint-disable-next-line
   navigator.geolocation.getCurrentPosition(
     (position) => {
       console.log(position);
       const { coord } = position.coords;
-      return {
-        type: 'success',
-        data: coord,
-      };
+      dispatch({
+        type: types.GET_POSITION_SUCCESS,
+        location: coord,
+      });
     },
-    (error) => ({
-      type: 'error',
-      data: error,
-    }),
+    () => {
+      try {
+        PermissionsAndroid.request('android.permission.ACCESS_FINE_LOCATION', {
+          title: 'Để cho app hỗ trợ bạn',
+          message: 'Chúng tôi cần bạn cung cấp vị trí',
+        });
+      } catch (error) {
+        console.log(error);
+      }
+      dispatch({
+        type: types.GET_POSITION_ERRROR,
+        location: null,
+      });
+    },
   );
 };

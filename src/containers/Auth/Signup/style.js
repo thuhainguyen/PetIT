@@ -66,6 +66,10 @@ const signup = StyleSheet.create({
     shadowRadius: 6,
     shadowOpacity: 0.6,
   },
+  modalContainer: {
+    flex: 1,
+    paddingHorizontal: 35 * d.ratioW,
+  },
   inputModal: {
     borderWidth: 1,
     borderColor: '#707070',

@@ -36,6 +36,18 @@ export default (state = defaultState, action) => {
         dataSuccess: false,
         error: true,
       };
+    case types.GET_POSITION_SUCCESS:
+      return {
+        ...state,
+        isLocation: true,
+        location: action.location,
+      };
+    case types.GET_POSITION_ERRROR:
+      return {
+        ...state,
+        isLocation: false,
+        location: {},
+      };
     default:
       return state;
   }

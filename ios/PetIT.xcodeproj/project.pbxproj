@@ -62,6 +62,18 @@
 		D5A910C0B1224D7A900DDC8A /* seguili.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8C569C82C8E482B8CB32EA3 /* seguili.ttf */; };
 		A806185F383740C29AB3404C /* seguisbi.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 60B889FD1E454FF4BFD30C77 /* seguisbi.ttf */; };
 		27CDC922C2FD44C38E86486D /* seguisli.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F898E5097144C5EA6D2184C /* seguisli.ttf */; };
+		2C519E24C53A4C13B5F05AC4 /* libInteractable.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54478A2F8E4E4F06B52751C8 /* libInteractable.a */; };
+		2C746F2B96BF42EBAD104206 /* helveticaneue.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE9D49BABE954AC2BA8B48EB /* helveticaneue.ttf */; };
+		43E8CEE5CF334299BE68508B /* helveticaneuebolditalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1C8E884D06446BBC30764B /* helveticaneuebolditalic.ttf */; };
+		1073892FE21549C18B2F99FC /* helveticaneuecondensedblack.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30550E86BC5F4ABDA676ACDB /* helveticaneuecondensedblack.ttf */; };
+		82AF06228E62446F8913D34B /* helveticaneuecondensedbold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0A7EB280D4F4D2F8003222E /* helveticaneuecondensedbold.ttf */; };
+		2B4311E3EE4D40E894610A48 /* helveticaneueitalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0F97B2042D864920B676D212 /* helveticaneueitalic.ttf */; };
+		374B4CE01B524F0DA941708F /* helveticaneuelight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B253ACEB62840D09DE57D78 /* helveticaneuelight.ttf */; };
+		2A73B1A346CA477582299F22 /* helveticaneuelightitalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 621262D7A99149E39A6F3642 /* helveticaneuelightitalic.ttf */; };
+		4DF9153C590E4FD493F8AADF /* helveticaneuemedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06D142273D9B434EA2B1BEA4 /* helveticaneuemedium.ttf */; };
+		E82146F59894499CB56215DC /* helveticaneueultralight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B16E9AA7E0441D19A1D40F7 /* helveticaneueultralight.ttf */; };
+		3311C2165F5A418EBCAC8C5B /* helveticaneueultralightitalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 45B0C32D72BC48A69FC5B923 /* helveticaneueultralightitalic.ttf */; };
+		4090F3AC34574E1D9286EBEE /* libRCTFBSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEAC7CCD73F54249A7FCBC12 /* libRCTFBSDK.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -398,6 +410,20 @@
 		D8C569C82C8E482B8CB32EA3 /* seguili.ttf */ = {isa = PBXFileReference; name = "seguili.ttf"; path = "../assets/fonts/seguili.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		60B889FD1E454FF4BFD30C77 /* seguisbi.ttf */ = {isa = PBXFileReference; name = "seguisbi.ttf"; path = "../assets/fonts/seguisbi.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		4F898E5097144C5EA6D2184C /* seguisli.ttf */ = {isa = PBXFileReference; name = "seguisli.ttf"; path = "../assets/fonts/seguisli.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4C320C063BF14A3B9B175CA8 /* Interactable.xcodeproj */ = {isa = PBXFileReference; name = "Interactable.xcodeproj"; path = "../node_modules/react-native-interactable/ios/Interactable.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		54478A2F8E4E4F06B52751C8 /* libInteractable.a */ = {isa = PBXFileReference; name = "libInteractable.a"; path = "libInteractable.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		AE9D49BABE954AC2BA8B48EB /* helveticaneue.ttf */ = {isa = PBXFileReference; name = "helveticaneue.ttf"; path = "../assets/fonts/helveticaneue.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4F1C8E884D06446BBC30764B /* helveticaneuebolditalic.ttf */ = {isa = PBXFileReference; name = "helveticaneuebolditalic.ttf"; path = "../assets/fonts/helveticaneuebolditalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		30550E86BC5F4ABDA676ACDB /* helveticaneuecondensedblack.ttf */ = {isa = PBXFileReference; name = "helveticaneuecondensedblack.ttf"; path = "../assets/fonts/helveticaneuecondensedblack.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A0A7EB280D4F4D2F8003222E /* helveticaneuecondensedbold.ttf */ = {isa = PBXFileReference; name = "helveticaneuecondensedbold.ttf"; path = "../assets/fonts/helveticaneuecondensedbold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0F97B2042D864920B676D212 /* helveticaneueitalic.ttf */ = {isa = PBXFileReference; name = "helveticaneueitalic.ttf"; path = "../assets/fonts/helveticaneueitalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5B253ACEB62840D09DE57D78 /* helveticaneuelight.ttf */ = {isa = PBXFileReference; name = "helveticaneuelight.ttf"; path = "../assets/fonts/helveticaneuelight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		621262D7A99149E39A6F3642 /* helveticaneuelightitalic.ttf */ = {isa = PBXFileReference; name = "helveticaneuelightitalic.ttf"; path = "../assets/fonts/helveticaneuelightitalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		06D142273D9B434EA2B1BEA4 /* helveticaneuemedium.ttf */ = {isa = PBXFileReference; name = "helveticaneuemedium.ttf"; path = "../assets/fonts/helveticaneuemedium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0B16E9AA7E0441D19A1D40F7 /* helveticaneueultralight.ttf */ = {isa = PBXFileReference; name = "helveticaneueultralight.ttf"; path = "../assets/fonts/helveticaneueultralight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		45B0C32D72BC48A69FC5B923 /* helveticaneueultralightitalic.ttf */ = {isa = PBXFileReference; name = "helveticaneueultralightitalic.ttf"; path = "../assets/fonts/helveticaneueultralightitalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		92A93354CDA9433B9C793F5E /* RCTFBSDK.xcodeproj */ = {isa = PBXFileReference; name = "RCTFBSDK.xcodeproj"; path = "../node_modules/react-native-fbsdk/ios/RCTFBSDK.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		FEAC7CCD73F54249A7FCBC12 /* libRCTFBSDK.a */ = {isa = PBXFileReference; name = "libRCTFBSDK.a"; path = "libRCTFBSDK.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -434,6 +460,8 @@
 				DD0D7E133F63447683BE3F6F /* libRNFirebase.a in Frameworks */,
 				6492F81C1D2341EDB8002D63 /* libBVLinearGradient.a in Frameworks */,
 				CAAE6121FCA446E78946FCBD /* libAirMaps.a in Frameworks */,
+				2C519E24C53A4C13B5F05AC4 /* libInteractable.a in Frameworks */,
+				4090F3AC34574E1D9286EBEE /* libRCTFBSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,6 +656,8 @@
 				E402FEE3F60D438093FD93F5 /* RNFirebase.xcodeproj */,
 				385B590AAF4F403AA3E9AB80 /* BVLinearGradient.xcodeproj */,
 				86564103A5C54DE2BCF6A5D4 /* AirMaps.xcodeproj */,
+				4C320C063BF14A3B9B175CA8 /* Interactable.xcodeproj */,
+				92A93354CDA9433B9C793F5E /* RCTFBSDK.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -696,6 +726,16 @@
 				D8C569C82C8E482B8CB32EA3 /* seguili.ttf */,
 				60B889FD1E454FF4BFD30C77 /* seguisbi.ttf */,
 				4F898E5097144C5EA6D2184C /* seguisli.ttf */,
+				AE9D49BABE954AC2BA8B48EB /* helveticaneue.ttf */,
+				4F1C8E884D06446BBC30764B /* helveticaneuebolditalic.ttf */,
+				30550E86BC5F4ABDA676ACDB /* helveticaneuecondensedblack.ttf */,
+				A0A7EB280D4F4D2F8003222E /* helveticaneuecondensedbold.ttf */,
+				0F97B2042D864920B676D212 /* helveticaneueitalic.ttf */,
+				5B253ACEB62840D09DE57D78 /* helveticaneuelight.ttf */,
+				621262D7A99149E39A6F3642 /* helveticaneuelightitalic.ttf */,
+				06D142273D9B434EA2B1BEA4 /* helveticaneuemedium.ttf */,
+				0B16E9AA7E0441D19A1D40F7 /* helveticaneueultralight.ttf */,
+				45B0C32D72BC48A69FC5B923 /* helveticaneueultralightitalic.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1164,6 +1204,16 @@
 				D5A910C0B1224D7A900DDC8A /* seguili.ttf in Resources */,
 				A806185F383740C29AB3404C /* seguisbi.ttf in Resources */,
 				27CDC922C2FD44C38E86486D /* seguisli.ttf in Resources */,
+				2C746F2B96BF42EBAD104206 /* helveticaneue.ttf in Resources */,
+				43E8CEE5CF334299BE68508B /* helveticaneuebolditalic.ttf in Resources */,
+				1073892FE21549C18B2F99FC /* helveticaneuecondensedblack.ttf in Resources */,
+				82AF06228E62446F8913D34B /* helveticaneuecondensedbold.ttf in Resources */,
+				2B4311E3EE4D40E894610A48 /* helveticaneueitalic.ttf in Resources */,
+				374B4CE01B524F0DA941708F /* helveticaneuelight.ttf in Resources */,
+				2A73B1A346CA477582299F22 /* helveticaneuelightitalic.ttf in Resources */,
+				4DF9153C590E4FD493F8AADF /* helveticaneuemedium.ttf in Resources */,
+				E82146F59894499CB56215DC /* helveticaneueultralight.ttf in Resources */,
+				3311C2165F5A418EBCAC8C5B /* helveticaneueultralightitalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1303,6 +1353,8 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1312,6 +1364,8 @@
 					"$(SRCROOT)\..\node_modules\react-native-firebase\ios\RNFirebase/**",
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 					"$(SRCROOT)\..\node_modules\react-native-maps\lib\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-interactable\ios\Interactable/**",
+					"$(SRCROOT)\..\node_modules\react-native-fbsdk\ios\RCTFBSDK/**",
 				);
 			};
 			name = Debug;
@@ -1338,6 +1392,8 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1347,6 +1403,8 @@
 					"$(SRCROOT)\..\node_modules\react-native-firebase\ios\RNFirebase/**",
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 					"$(SRCROOT)\..\node_modules\react-native-maps\lib\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-interactable\ios\Interactable/**",
+					"$(SRCROOT)\..\node_modules\react-native-fbsdk\ios\RCTFBSDK/**",
 				);
 			};
 			name = Release;
@@ -1374,6 +1432,8 @@
 					"$(SRCROOT)\..\node_modules\react-native-firebase\ios\RNFirebase/**",
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 					"$(SRCROOT)\..\node_modules\react-native-maps\lib\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-interactable\ios\Interactable/**",
+					"$(SRCROOT)\..\node_modules\react-native-fbsdk\ios\RCTFBSDK/**",
 				);
 			};
 			name = Debug;
@@ -1400,6 +1460,8 @@
 					"$(SRCROOT)\..\node_modules\react-native-firebase\ios\RNFirebase/**",
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 					"$(SRCROOT)\..\node_modules\react-native-maps\lib\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-interactable\ios\Interactable/**",
+					"$(SRCROOT)\..\node_modules\react-native-fbsdk\ios\RCTFBSDK/**",
 				);
 			};
 			name = Release;
@@ -1435,6 +1497,8 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1444,6 +1508,8 @@
 					"$(SRCROOT)\..\node_modules\react-native-firebase\ios\RNFirebase/**",
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 					"$(SRCROOT)\..\node_modules\react-native-maps\lib\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-interactable\ios\Interactable/**",
+					"$(SRCROOT)\..\node_modules\react-native-fbsdk\ios\RCTFBSDK/**",
 				);
 			};
 			name = Debug;
@@ -1479,6 +1545,8 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1488,6 +1556,8 @@
 					"$(SRCROOT)\..\node_modules\react-native-firebase\ios\RNFirebase/**",
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 					"$(SRCROOT)\..\node_modules\react-native-maps\lib\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-interactable\ios\Interactable/**",
+					"$(SRCROOT)\..\node_modules\react-native-fbsdk\ios\RCTFBSDK/**",
 				);
 			};
 			name = Release;
@@ -1522,6 +1592,8 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1531,6 +1603,8 @@
 					"$(SRCROOT)\..\node_modules\react-native-firebase\ios\RNFirebase/**",
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 					"$(SRCROOT)\..\node_modules\react-native-maps\lib\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-interactable\ios\Interactable/**",
+					"$(SRCROOT)\..\node_modules\react-native-fbsdk\ios\RCTFBSDK/**",
 				);
 			};
 			name = Debug;
@@ -1565,6 +1639,8 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1574,6 +1650,8 @@
 					"$(SRCROOT)\..\node_modules\react-native-firebase\ios\RNFirebase/**",
 					"$(SRCROOT)\..\node_modules\react-native-linear-gradient\BVLinearGradient",
 					"$(SRCROOT)\..\node_modules\react-native-maps\lib\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-interactable\ios\Interactable/**",
+					"$(SRCROOT)\..\node_modules\react-native-fbsdk\ios\RCTFBSDK/**",
 				);
 			};
 			name = Release;

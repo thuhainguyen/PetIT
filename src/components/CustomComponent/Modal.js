@@ -7,6 +7,7 @@ import * as d from '../../utilities/Tranform.js';
 type Props = {
   children: PropTypes.any,
   style: PropTypes.any,
+  onPress: Function,
 };
 
 const style = StyleSheet.create({
@@ -32,11 +33,13 @@ const style = StyleSheet.create({
 });
 
 export default class Modal extends PureComponent<Props> {
+  static defaultProps = {
+    onPress: () => {},
+  };
   state = {
     isShow: false,
     animation: new Animated.Value(0),
   };
-
   open = () => {
     this.setState(
       {
@@ -56,9 +59,12 @@ export default class Modal extends PureComponent<Props> {
       duration: 170,
       toValue: 0,
     }).start(() => {
-      this.setState({
-        isShow: false,
-      });
+      this.setState(
+        {
+          isShow: false,
+        },
+        this.props.onPress,
+      );
     });
   };
 
