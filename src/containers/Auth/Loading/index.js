@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import {
   ImageBackground,
   StatusBar,
-  Animated,
   NetInfo,
   AsyncStorage,
   Alert,
@@ -16,9 +15,7 @@ import { getPositionUser } from '../../../actions';
 class Loading extends PureComponent {
   constructor(props) {
     super(props);
-    this.state = {
-      opacity: new Animated.Value(1),
-    };
+    this.state = {};
   }
 
   componentDidMount() {
@@ -39,17 +36,6 @@ class Loading extends PureComponent {
       this.handleFirstConnectivityChange,
     );
   }
-  setAnimation = () => {
-    const ani1 = Animated.timing(this.state.opacity, {
-      duration: 50,
-      toValue: 0.7,
-    });
-    const ani2 = Animated.timing(this.state.opacity, {
-      duration: 50,
-      toValue: 1,
-    });
-    Animated.sequence([ani1, ani2]).start(this.setAnimation);
-  };
   handleFirstConnectivityChange = async (isConnected) => {
     if (!isConnected) {
       Alert.alert('Nhắc nhở', 'Bạn cần kết nối internet để sử dụng ứng dụng.', [
@@ -70,7 +56,7 @@ class Loading extends PureComponent {
     return (
       <ImageBackground source={images.background} style={style.container}>
         <StatusBar hidden />
-        <Animated.Image
+        <ImageBackground
           source={images.logo}
           style={[
             style.logo,

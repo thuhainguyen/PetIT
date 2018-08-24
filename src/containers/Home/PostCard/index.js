@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { View, TouchableOpacity, Image } from 'react-native';
+import { View, TouchableOpacity, ImageBackground, Image } from 'react-native';
 import { post, user } from '../../../constants/dataType';
 import { Custom } from '../../../components';
 import { icon } from '../../../themes';
@@ -22,7 +22,7 @@ class Index extends PureComponent<Props> {
           activeOpacity={0.85}
           style={{ flex: 1 }}
         >
-          <Image
+          <ImageBackground
             resizeMode="stretch"
             source={{ uri: item.photoUrl }}
             style={{
@@ -35,7 +35,10 @@ class Index extends PureComponent<Props> {
             style={style.btnPost}
             onPress={this.props.avatarOnPress}
           >
-            <Image style={style.avatar} source={{ uri: userItem.photoUrl }} />
+            <ImageBackground
+              style={style.avatar}
+              source={{ uri: userItem.photoUrl }}
+            />
           </TouchableOpacity>
           <TouchableOpacity style={style.btnPost}>
             <Image source={icon.whiteHeart} />

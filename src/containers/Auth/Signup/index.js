@@ -67,6 +67,7 @@ class Signup extends PureComponent<Props, State> {
                   following: [],
                   gender: this.genText,
                   address: this.addressText,
+                  location: this.props.location,
                 };
                 this.user = tmp;
                 console.log('usertmp: ', this.user);
@@ -148,10 +149,13 @@ class Signup extends PureComponent<Props, State> {
                 }
                 break;
               case firebase.auth.PhoneAuthState.AUTO_VERIFY_TIMEOUT: // or 'timeout'
-                this.setState({
-                  message: 'Mã xác thực không gửi được, vui lòng thử lại',
-                  isSignup: false,
-                });
+                this.setState(
+                  {
+                    message: 'Đã hết thời gian xác thực, vui lòng thử lại',
+                    isSignup: false,
+                  },
+                  () => this.modalVerify.close(),
+                );
                 break;
               case firebase.auth.PhoneAuthState.AUTO_VERIFIED:
                 console.log('aaaa');
@@ -374,7 +378,12 @@ Signup.propTypes = {
     goBack: PropTypes.func.isRequired,
     dispatch: PropTypes.func.isRequired,
   }).isRequired,
+  location: PropTypes.object.isRequired,
 };
 /* eslint-disable */
 
-export default connect()(Signup);
+const mapStateToProps = (state) => ({
+  location: state.location,
+});
+
+export default connect(mapStateToProps)(Signup);

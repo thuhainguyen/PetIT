@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { ActivityIndicator, View, TouchableOpacity, Text } from 'react-native';
+import { View, TouchableOpacity, Text } from 'react-native';
 import { LoginManager, AccessToken } from 'react-native-fbsdk';
 import { connect } from 'react-redux';
 import { Custom } from '../../../components';
@@ -18,15 +18,10 @@ class LinkApp extends PureComponent<Props> {
   constructor(props) {
     super(props);
     this.user = this.props.navigation.getParam('user', {});
-    this.state = {
-      isGetFacebookInfo: false,
-    };
+    this.state = {};
   }
 
   getFacebookInfo = () => {
-    this.setState({
-      isGetFacebookInfo: true,
-    });
     LoginManager.logInWithReadPermissions(['user_friends', 'email']).then(
       (result) => {
         if (result.isCancelled) {
@@ -62,37 +57,29 @@ class LinkApp extends PureComponent<Props> {
   render() {
     return (
       <View style={style.container}>
-        {this.state.isGetFacebookInfo ? (
-          <ActivityIndicator color="black" size="large" />
-        ) : (
-          <View style={style.modalContainer}>
-            <Custom.Text style={style.txtModal}>
-              {'Bạn có muốn \n liên kết tài khoản không?'}
-            </Custom.Text>
-            <TouchableOpacity
-              style={[style.btnModal, { backgroundColor: '#3B579D' }]}
-              onPress={this.getFacebookInfo}
-            >
-              <Text style={style.txtBtnModal}>Facebook</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[style.btnModal, { backgroundColor: '#F5511E' }]}
-            >
-              <Text style={style.txtBtnModal}>Google</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[
-                style.btnModal,
-                { backgroundColor: colors.white, marginTop: 50 },
-              ]}
-              onPress={this.skipLink}
-            >
-              <Text style={[style.txtBtnModal, { color: '#01579b' }]}>
-                Bỏ qua
-              </Text>
-            </TouchableOpacity>
-          </View>
-        )}
+        <Custom.Text style={style.txtModal}>
+          {'Bạn có muốn \n liên kết tài khoản không?'}
+        </Custom.Text>
+        <TouchableOpacity
+          style={[style.btnModal, { backgroundColor: '#3B579D' }]}
+          onPress={this.getFacebookInfo}
+        >
+          <Text style={style.txtBtnModal}>Facebook</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[style.btnModal, { backgroundColor: '#F5511E' }]}
+        >
+          <Text style={style.txtBtnModal}>Google</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[
+            style.btnModal,
+            { backgroundColor: colors.white, marginTop: 50 },
+          ]}
+          onPress={this.skipLink}
+        >
+          <Text style={[style.txtBtnModal, { color: '#01579b' }]}>Bỏ qua</Text>
+        </TouchableOpacity>
       </View>
     );
   }
