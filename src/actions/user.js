@@ -83,7 +83,7 @@ export const getPositionUser = () => (dispatch) => {
       }
       dispatch({
         type: types.GET_POSITION_ERRROR,
-        dataLocation: null,
+        dataLocation: {},
       });
     },
   );
