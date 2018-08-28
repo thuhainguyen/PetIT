@@ -14,11 +14,12 @@ import PropTypes from 'prop-types';
 import style from './style';
 import { images, icons, colors } from '../../../themes';
 import { Custom } from '../../../components';
-import { setUser } from '../../../actions';
+import { setUser, getUserOther } from '../../../actions';
 
 type Props = {
   navigation: PropTypes.object.isRequired,
   setUser: PropTypes.func.isRequired,
+  location: Function,
 };
 
 type State = {
@@ -74,7 +75,8 @@ class Index extends PureComponent<Props, State> {
           this.passwordText,
         )
         .then(async (user) => {
-          this.props.setUser(user.user);
+          const tmp = await getUserOther(user.user._user.uid);
+          this.props.setUser({ ...tmp, location: this.props.location });
           this.props.navigation.navigate('Home');
         })
         .catch((error) => {
@@ -113,7 +115,10 @@ class Index extends PureComponent<Props, State> {
           activeOpacity={1}
         >
           <View style={style.vTop}>
-            <Image source={images.logoLogin} style={style.logoLogin} />
+            <ImageBackground
+              source={images.logoLogin}
+              style={style.logoLogin}
+            />
           </View>
           <View style={style.vMid}>
             <View style={style.form}>
@@ -152,8 +157,9 @@ class Index extends PureComponent<Props, State> {
                   }}
                   placeholderTextColor={colors.placeholderColorWhite}
                   underlineColorAndroid="transparent"
-                  returnKeyType="next"
+                  returnKeyType="done"
                   secureTextEntry={this.state.isShowPassword}
+                  onSubmitEditing={this.login}
                 />
                 <TouchableOpacity
                   style={style.btnShow}
@@ -222,10 +228,15 @@ class Index extends PureComponent<Props, State> {
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  location: state.user.location,
+});
+
 const mapDispatchToProps = (dispatch) => ({
   setUser: (user) => dispatch(setUser(user)),
 });
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps,
 )(Index);

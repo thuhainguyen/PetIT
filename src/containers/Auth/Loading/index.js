@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import style from './style';
 import { images } from '../../../themes';
-import { getPositionUser } from '../../../actions';
+import { getPositionUser, setUser } from '../../../actions';
 
 class Loading extends PureComponent {
   constructor(props) {
@@ -19,6 +19,7 @@ class Loading extends PureComponent {
   }
 
   componentDidMount() {
+    this.props.getPositionUser();
     setTimeout(async () => {
       NetInfo.isConnected.fetch().then((isConnected) => {
         this.handleFirstConnectivityChange(isConnected);
@@ -27,7 +28,6 @@ class Loading extends PureComponent {
         'connectionChange',
         this.handleFirstConnectivityChange,
       );
-      this.props.getPositionUser();
     }, 250);
   }
   componentWillUnmount() {
@@ -44,11 +44,23 @@ class Loading extends PureComponent {
     } else {
       const tmp = await AsyncStorage.getItem('user');
       if (tmp) {
-        const user = JSON.parse(tmp);
-        this.props.navigation.navigate('Home', user);
+        this.user = JSON.parse(tmp);
+        this.checkLocation();
       } else {
         this.props.navigation.navigate('Login0');
       }
+    }
+  };
+  interval = null;
+  checkLocation = () => {
+    if (this.props.location) {
+      if (this.interval) clearInterval(this.interval);
+      this.props.setUser({ ...this.user, location: this.props.location });
+      this.props.navigation.navigate('Home', {
+        user: { ...this.user, location: this.props.location },
+      });
+    } else {
+      this.interval = setInterval(this.checkLocation, 20);
     }
   };
 
@@ -56,15 +68,7 @@ class Loading extends PureComponent {
     return (
       <ImageBackground source={images.background} style={style.container}>
         <StatusBar hidden />
-        <ImageBackground
-          source={images.logo}
-          style={[
-            style.logo,
-            {
-              opacity: this.state.opacity,
-            },
-          ]}
-        />
+        <ImageBackground source={images.logo} style={style.logo} />
       </ImageBackground>
     );
   }
@@ -74,9 +78,15 @@ Loading.propTypes = {
     navigate: PropTypes.func.isRequired,
   }).isRequired,
   getPositionUser: PropTypes.func.isRequired,
+  setUser: PropTypes.func.isRequired,
+  location: PropTypes.object.isRequired,
 };
 
+const mapStateToProps = (state) => ({
+  location: state.user.location,
+});
+
 export default connect(
-  null,
-  { getPositionUser },
+  mapStateToProps,
+  { getPositionUser, setUser },
 )(Loading);

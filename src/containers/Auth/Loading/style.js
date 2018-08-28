@@ -9,8 +9,8 @@ const style = StyleSheet.create({
     justifyContent: 'center',
   },
   logo: {
-    width: 134 * d.ratioW,
-    height: 166 * d.ratioH,
+    width: d.verticalScale(134),
+    height: d.verticalScale(166),
   },
 });
 

@@ -8,8 +8,8 @@ const style = StyleSheet.create({
     width: '100%',
   },
   logo: {
-    width: 134 * d.ratioW,
-    height: 167 * d.ratioH,
+    width: d.verticalScale(134),
+    height: d.verticalScale(166),
   },
   vTop: {
     flex: 1,

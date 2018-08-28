@@ -4,20 +4,10 @@ import { connect } from 'react-redux';
 import style from './style';
 import { Property, Button } from '../Component';
 import { Custom } from '../../../components';
+import { Pet } from '../../../dataType';
 
 type Props = {
   navigation: Object,
-};
-
-type dataPet = {
-  petName: string,
-  birthDay: number,
-  photoUrl: string,
-  age: string,
-  gender: string,
-  species: string,
-  hairColor: string,
-  microshipNumber: string,
 };
 
 class PetDetail extends PureComponent<Props> {
@@ -27,7 +17,7 @@ class PetDetail extends PureComponent<Props> {
   }
 
   render() {
-    const data: dataPet = this.props.navigation.getParam('pet', {});
+    const data: Pet = this.props.navigation.getParam('pet', {});
     return (
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -44,7 +34,7 @@ class PetDetail extends PureComponent<Props> {
             <Property name="Giống" content={data.species} />
             <Property name="Giới tính" content={data.gender} />
             <Property name="Màu Lông" content={data.hairColor} />
-            <Property name="Số Microship" content={data.microshipNumber} />
+            <Property name="Số Microship" content={data.microship} />
           </View>
         </View>
         <View style={style.funcView}>

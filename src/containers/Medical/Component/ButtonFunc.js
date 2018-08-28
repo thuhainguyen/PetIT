@@ -3,6 +3,7 @@ import { ViewPropTypes, ImageBackground, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import { Custom } from '../../../components';
 import { images } from '../../../themes';
+import { horizontalScale } from '../../../utilities/Tranform';
 
 const Button = ({ style, name, onPress }) => (
   <TouchableOpacity onPress={onPress} style={style}>
@@ -19,6 +20,7 @@ const Button = ({ style, name, onPress }) => (
           color: 'white',
           fontWeight: '600',
           textAlign: 'center',
+          fontSize: horizontalScale(13, 1.2),
         }}
       >
         {name}

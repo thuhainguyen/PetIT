@@ -1,27 +1,27 @@
 import * as types from '../constants/actionTypes';
 
 const defaultState = {
-  post: [],
+  dataPet: {},
 };
 
 export default (state = defaultState, action) => {
   switch (action.type) {
-    case types.GET_POST_ING:
+    case types.GET_PET_ING:
       return {
         ...state,
-        isPostFetching: true,
+        isPetFetching: true,
       };
-    case types.GET_POST_SUCCESS:
+    case types.GET_PET_SUCCESS:
       return {
         ...state,
-        isPostFetching: false,
-        dataPost: action.dataPost,
+        isPetFetching: false,
+        dataPet: action.dataPet,
       };
-    case types.GET_POST_FAIL:
+    case types.GET_PET_FAIL:
       return {
         ...state,
-        isPostFetching: false,
-        postError: true,
+        isPettFetching: false,
+        pettError: true,
       };
     default:
       return state;

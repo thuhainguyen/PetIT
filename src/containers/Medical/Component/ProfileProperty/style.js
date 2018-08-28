@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { ratioH } from '../../../../utilities/Tranform';
+import { ratioH, horizontalScale } from '../../../../utilities/Tranform';
 
 const style = StyleSheet.create({
   row: {
@@ -14,6 +14,10 @@ const style = StyleSheet.create({
   titleCol: {
     fontWeight: '600',
     color: 'rgba(0,0,0,0.9)',
+    fontSize: horizontalScale(14, 1.2),
+  },
+  contentCol: {
+    fontSize: horizontalScale(13, 1.2),
   },
 });
 

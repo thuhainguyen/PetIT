@@ -8,7 +8,7 @@ const getPost = () => ({
 });
 const getPostSuccess = (data) => ({
   type: types.GET_POST_SUCCESS,
-  payload: data,
+  dataPost: data,
 });
 const getPostFail = () => ({
   type: types.GET_POST_FAIL,

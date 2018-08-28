@@ -7,11 +7,10 @@ import style from './style';
 import { colors } from '../../../themes';
 
 const url =
-  'https://graph.facebook.com/v3.1/me?fields=email,birthday,hometown,gender,picture&access_token';
+  'https://graph.facebook.com/v3.1/me?fields=name,email,birthday,hometown,gender,picture&access_token';
 
 type Props = {
   navigation: Object,
-  location: Object,
 };
 
 class LinkApp extends PureComponent<Props> {
@@ -28,21 +27,18 @@ class LinkApp extends PureComponent<Props> {
           console.log('cancel');
         } else {
           AccessToken.getCurrentAccessToken().then(async (data) => {
-            console.log('data: ', data);
             const response = await fetch(`${url}=${data.accessToken}`);
             const json = await response.json();
             const tmp = {
               photoUrl: json.picture.data.url,
               name: json.name,
               email: json.email,
-              location: this.props.location,
             };
-            console.log('response', tmp);
             this.user = {
               ...this.user,
               ...tmp,
             };
-            this.props.navigation.navigate('Presentation', { user: this.user });
+            this.skipLink();
           });
         }
       },

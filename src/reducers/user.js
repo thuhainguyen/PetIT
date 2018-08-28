@@ -3,6 +3,7 @@ import * as types from '../constants/actionTypes';
 const defaultState = {
   user: {},
   userDatabase: {},
+  location: {},
 };
 
 export default (state = defaultState, action) => {
@@ -40,7 +41,7 @@ export default (state = defaultState, action) => {
       return {
         ...state,
         isLocation: true,
-        location: action.location,
+        location: action.dataLocation,
       };
     case types.GET_POSITION_ERRROR:
       return {

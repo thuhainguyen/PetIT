@@ -63,6 +63,7 @@ class Signup extends PureComponent<Props, State> {
                   photoUrl: '',
                   createtime: user.user.metadata.creationTime,
                   name: this.phoneText,
+                  account: this.phoneText,
                   followed: [],
                   following: [],
                   gender: this.genText,
@@ -70,7 +71,6 @@ class Signup extends PureComponent<Props, State> {
                   location: this.props.location,
                 };
                 this.user = tmp;
-                console.log('usertmp: ', this.user);
                 this.modalVerify.close();
                 this.props.navigation.navigate('LinkApp', { user: this.user });
               })
@@ -132,14 +132,15 @@ class Signup extends PureComponent<Props, State> {
           .on('state_changed', ({ state, code, error }) => {
             switch (state) {
               case firebase.auth.PhoneAuthState.CODE_SENT:
-                this.modalVerify.open();
-                this.setState({
-                  isSignup: false,
-                  comfirmCode: code,
-                });
+                this.setState(
+                  {
+                    isSignup: false,
+                    comfirmCode: code,
+                  },
+                  () => this.modalVerify.open(),
+                );
                 break;
               case firebase.auth.PhoneAuthState.ERROR: // or 'error'
-                console.log('verification error');
                 console.log(error);
                 if (error === 'auth/unknown') {
                   this.setState({
@@ -158,11 +159,8 @@ class Signup extends PureComponent<Props, State> {
                 );
                 break;
               case firebase.auth.PhoneAuthState.AUTO_VERIFIED:
-                console.log('aaaa');
-                this.setState({
-                  comfirmCode: code,
-                });
-                console.log('code: ', code);
+                this.codeInput = code;
+                this.verify();
                 break;
               default:
             }
@@ -186,7 +184,7 @@ class Signup extends PureComponent<Props, State> {
       const query = firebase
         .database()
         .ref('user')
-        .orderByChild('phone')
+        .orderByChild('account')
         .equalTo(this.phoneText);
       const queryResult = await query.once('value');
       if (queryResult.val() === null) {
@@ -383,7 +381,7 @@ Signup.propTypes = {
 /* eslint-disable */
 
 const mapStateToProps = (state) => ({
-  location: state.location,
+  location: state.user.location,
 });
 
 export default connect(mapStateToProps)(Signup);

@@ -6,7 +6,7 @@ import {
 
 const middleware = [
   thunk,
-  createReactNavigationReduxMiddleware('root', state => state.nav),
+  createReactNavigationReduxMiddleware('root', (state) => state.navigation),
 ];
 
 const addListener = createReduxBoundAddListener('root');

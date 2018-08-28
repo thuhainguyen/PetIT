@@ -12,8 +12,8 @@ const style = StyleSheet.create({
     alignItems: 'center',
   },
   logoLogin: {
-    width: 173 * d.ratioW,
-    height: 61 * d.ratioH,
+    width: d.horizontalScale(173),
+    height: d.horizontalScale(61),
   },
   vMid: {
     flex: 2.5,

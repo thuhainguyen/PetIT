@@ -15,14 +15,64 @@ const getPetFail = () => ({
 const getDataPet = (userId) => (dispatch) => {
   dispatch(getPet());
   try {
+    const pet = {};
     firebase
       .database()
-      .ref('pet')
+      .ref('pet/dog')
       .orderByChild('userId')
       .equalTo(userId)
-      .on('value', (snapshot) => {
-        console.log(snapshot.val());
-        dispatch(getPetSuccess(snapshot.val()));
+      .on('value', (petDog) => {
+        if (petDog.val()) {
+          const tmpDog = [];
+          Object.keys(petDog.val()).forEach((key) => {
+            const tmp = petDog.val()[key];
+            tmp.key = key;
+            tmpDog.push(tmp);
+          });
+          pet.dog = {
+            name: 'Chó',
+            data: tmpDog,
+          };
+        }
+        firebase
+          .database()
+          .ref('pet/cat')
+          .orderByChild('userId')
+          .equalTo(userId)
+          .on('value', (petCat) => {
+            if (petCat.val()) {
+              const tmpCat = [];
+              Object.keys(petCat.val()).forEach((key) => {
+                const tmp = petCat.val()[key];
+                tmp.key = key;
+                tmpCat.push(tmp);
+              });
+              pet.cat = {
+                name: 'Mèo',
+                data: tmpCat,
+              };
+            }
+            firebase
+              .database()
+              .ref('pet/fish')
+              .orderByChild('userId')
+              .equalTo(userId)
+              .on('value', (petFish) => {
+                if (petFish.val()) {
+                  const tmpFish = [];
+                  Object.keys(petFish.val()).forEach((key) => {
+                    const tmp = petFish.val()[key];
+                    tmp.key = key;
+                    tmpFish.push(tmp);
+                  });
+                  pet.fish = {
+                    name: 'Cá',
+                    data: tmpFish,
+                  };
+                }
+                dispatch(getPetSuccess(pet));
+              });
+          });
       });
   } catch (error) {
     console.log(error);

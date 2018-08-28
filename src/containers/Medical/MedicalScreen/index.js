@@ -10,11 +10,15 @@ import { connect } from 'react-redux';
 import style from './style';
 import { images } from '../../../themes';
 import { SearchComponent, Custom } from '../../../components';
-import { dataCat, dataDog, dataFish } from './data';
-import { randomId } from '../../../utilities/random';
+import { Pet, User } from '../../../dataType';
+import { getPetData } from '../../../actions';
+import dataPet from './data';
 
 type Props = {
   navigation: Object,
+  getPetData: Function,
+  user: User,
+  // dataPet: Object,
 };
 
 class MedicalScreen extends PureComponent<Props> {
@@ -22,27 +26,33 @@ class MedicalScreen extends PureComponent<Props> {
     super(props);
     this.state = {};
   }
-
+  componentDidMount() {
+    this.props.getPetData(this.props.user.id);
+  }
   render() {
+    // const { dataPet } = this.props;
     return (
       <View style={{ flex: 1, backgroundColor: '#FFF' }}>
         <View style={style.header}>
           <SearchComponent style={{ elevation: 5 }} />
         </View>
         <ScrollView style={{ flex: 1 }}>
-          <View style={style.top}>
-            <ImageBackground
-              style={style.vTitle}
-              source={images.backgroundButton}
-            >
-              <Custom.Text style={style.title}>Chó</Custom.Text>
-            </ImageBackground>
-            <View style={style.view}>
-              {dataDog.map((item) => (
-                <View style={style.petCard} key={randomId(20)}>
+          {Object.keys(dataPet).map((key) => (
+            <View style={style.top} key={key}>
+              <ImageBackground
+                style={style.vTitle}
+                source={images.backgroundButton}
+              >
+                <Custom.Text style={style.title}>
+                  {dataPet[key].name}
+                </Custom.Text>
+              </ImageBackground>
+              <View style={style.view}>
+                {dataPet[key].data.map((item: Pet) => (
                   <ImageBackground
+                    key={item.key}
                     source={{ uri: item.photoUrl }}
-                    style={{ flex: 1 }}
+                    style={style.petCard}
                   >
                     <TouchableOpacity
                       onPress={() =>
@@ -55,66 +65,27 @@ class MedicalScreen extends PureComponent<Props> {
                       <Text>{item.petName}</Text>
                     </TouchableOpacity>
                   </ImageBackground>
-                </View>
-              ))}
+                ))}
+              </View>
             </View>
-          </View>
-          <View style={style.top}>
-            <ImageBackground
-              style={style.vTitle}
-              source={images.backgroundButton}
-            >
-              <Custom.Text style={style.title}>Mèo</Custom.Text>
-            </ImageBackground>
-            <View style={style.view}>
-              {dataCat.map((item) => (
-                <ImageBackground
-                  key={randomId(20)}
-                  source={{ uri: item.photoUrl }}
-                  style={style.petCard}
-                >
-                  <TouchableOpacity
-                    onPress={() =>
-                      this.props.navigation.navigate('PetDetail', { pet: item })
-                    }
-                    style={{ flex: 1 }}
-                  >
-                    <Text>{item.petName}</Text>
-                  </TouchableOpacity>
-                </ImageBackground>
-              ))}
-            </View>
-          </View>
-          <View style={style.top}>
-            <ImageBackground
-              style={style.vTitle}
-              source={images.backgroundButton}
-            >
-              <Custom.Text style={style.title}>Cá</Custom.Text>
-            </ImageBackground>
-            <View style={style.view}>
-              {dataFish.map((item) => (
-                <ImageBackground
-                  key={randomId(20)}
-                  source={{ uri: item.photoUrl }}
-                  style={style.petCard}
-                >
-                  <TouchableOpacity
-                    onPress={() =>
-                      this.props.navigation.navigate('PetDetail', { pet: item })
-                    }
-                    style={{ flex: 1 }}
-                  >
-                    <Text>{item.petName}</Text>
-                  </TouchableOpacity>
-                </ImageBackground>
-              ))}
-            </View>
-          </View>
+          ))}
         </ScrollView>
       </View>
     );
   }
 }
 
-export default connect()(MedicalScreen);
+const mapStateToProps = (state) => {
+  console.log(state.fetchPetData.dataPet);
+  return {
+    user: state.user.user,
+    dataPet: state.fetchPetData.dataPet,
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  {
+    getPetData,
+  },
+)(MedicalScreen);

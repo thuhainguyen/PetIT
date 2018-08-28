@@ -3,7 +3,6 @@ import { StatusBar, View, TouchableOpacity, Text, Image } from 'react-native';
 import Swiper from 'react-native-swiper';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import firebase from 'react-native-firebase';
 import { PresentCard, Custom } from '../../../components';
 import style from './style';
 import { icons, iconComments } from '../../../themes';
@@ -21,11 +20,6 @@ class Presentation extends PureComponent<Props> {
 
   componentDidMount() {
     const user = this.props.navigation.getParam('user', {});
-    console.log(user);
-    firebase
-      .database()
-      .ref(`user/${user.id}`)
-      .set(user);
     this.props.setUser(user);
   }
   changeIndex(value) {

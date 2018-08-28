@@ -2,14 +2,32 @@ import { AsyncStorage, PermissionsAndroid } from 'react-native';
 import firebase from 'react-native-firebase';
 import * as types from '../constants/actionTypes';
 
-export const setUser = (user: Object) => {
+/* eslint-disable */
+export const setUser = (user: Object, isNewUser: boolean = false) => (
+  dispatch,
+) => {
   AsyncStorage.setItem('user', JSON.stringify(user));
-  return {
-    type: types.SET_USER,
-    user,
-  };
+  const ref = firebase
+    .database()
+    .ref('user')
+    .child(user.id);
+  if (!isNewUser) {
+    ref.update(user, () =>
+      dispatch({
+        type: types.SET_USER,
+        user,
+      }),
+    );
+  } else {
+    ref.set(user, () =>
+      dispatch({
+        type: types.SET_USER,
+        user,
+      }),
+    );
+  }
 };
-
+/* eslint-enable */
 export const setUserDatabase = (user) => ({
   type: types.SET_USER_DATABASE,
   payload: user,
@@ -45,10 +63,13 @@ export const getPositionUser = () => (dispatch) => {
   navigator.geolocation.getCurrentPosition(
     (position) => {
       console.log(position);
-      const { coord } = position.coords;
+      const { coords } = position;
       dispatch({
         type: types.GET_POSITION_SUCCESS,
-        location: coord,
+        dataLocation: {
+          latitude: coords.latitude,
+          longitude: coords.longitude,
+        },
       });
     },
     () => {
@@ -62,7 +83,7 @@ export const getPositionUser = () => (dispatch) => {
       }
       dispatch({
         type: types.GET_POSITION_ERRROR,
-        location: null,
+        dataLocation: null,
       });
     },
   );

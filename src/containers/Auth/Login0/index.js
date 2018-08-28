@@ -1,11 +1,5 @@
 import React, { PureComponent } from 'react';
-import {
-  View,
-  Text,
-  ImageBackground,
-  Image,
-  TouchableOpacity,
-} from 'react-native';
+import { View, Text, ImageBackground, TouchableOpacity } from 'react-native';
 
 import PropTypes from 'prop-types';
 import style from './style';
@@ -21,7 +15,7 @@ export default class Login extends PureComponent {
     return (
       <ImageBackground source={images.background} style={{ flex: 1 }}>
         <View style={style.vTop}>
-          <Image source={images.logo} style={style.logo} />
+          <ImageBackground source={images.logo} style={style.logo} />
         </View>
         <View style={style.vBottom}>
           <TouchableOpacity

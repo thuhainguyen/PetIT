@@ -16,6 +16,7 @@ type Props = {
   // post: Array<postType>,
   getDataPost: Function,
   // isFetching: boolean,
+  user: Object,
 };
 
 class Home extends PureComponent<Props> {
@@ -60,13 +61,10 @@ class Home extends PureComponent<Props> {
   );
 
   render() {
+    console.log('user: ', this.props.user);
     return (
       <View style={{ flex: 1 }}>
-        <StatusBar
-          hidden
-          backgroundColor="rgba(255,255,255,0.1)"
-          barStyle="dark-content"
-        />
+        <StatusBar hidden backgroundColor="white" barStyle="dark-content" />
         <Masonry
           ref={(node) => {
             this.masonry = node;
@@ -92,7 +90,6 @@ class Home extends PureComponent<Props> {
             }
           }}
           renderItem={(item: postType) => {
-            console.log('a');
             const userItem = this.findUser(item.userId);
             return (
               <PostCard
@@ -119,8 +116,9 @@ class Home extends PureComponent<Props> {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state);
   const { post, isFetching } = state.fetchPostData;
-  const { user } = state;
+  const { user } = state.user;
   return {
     post,
     user,

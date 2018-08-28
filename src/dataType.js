@@ -1,7 +1,7 @@
-type dataType = {
+export type DataStructure = {
   user: {
     userId: {
-      createtime: string,
+      createtime: number,
       userName: string,
       phone: string,
       photoUrl?: string,
@@ -21,7 +21,7 @@ type dataType = {
   },
   post: {
     postId: {
-      createtime: string,
+      createtime: number,
       photoUrl?: string,
       userId: string,
       addressPost: string,
@@ -37,7 +37,7 @@ type dataType = {
   pet: {
     petName: {
       petId: {
-        createtime: string,
+        createtime: number,
         petName: string,
         photoUrl: string,
         age?: string,
@@ -48,12 +48,12 @@ type dataType = {
         microship: string,
         album: {
           albumName: {
-            createtime: string,
+            createtime: number,
             postId: Array<string>,
           },
         },
         diary: Array<{
-          createtime: string,
+          createtime: number,
           treatment: string,
           photoUrl: string,
         }>,
@@ -62,4 +62,62 @@ type dataType = {
   },
 };
 
-export default dataType;
+export type User = {
+  createtime: number,
+  userName: string,
+  phone: string,
+  photoUrl?: string,
+  address?: string,
+  currentLocation: {
+    latitude: number,
+    longitude: number,
+  },
+  followed: Array<string>,
+  following: Array<string>,
+  status: {
+    enable: boolean,
+    lastRequest: string,
+  },
+  storeId?: string,
+};
+
+export type Post = {
+  key: string,
+  createtime: number,
+  photoUrl?: string,
+  userId: string,
+  addressPost: string,
+  react: number,
+  comment: Array<{
+    createtime: string,
+    userId: string,
+    content: number,
+  }>,
+  album?: string,
+};
+
+export type Diary = {
+  createtime: number,
+  treatment: string,
+  photoUrl: string,
+};
+
+export type Pet = {
+  key: string,
+  createtime: string,
+  petName: string,
+  photoUrl: string,
+  age?: string,
+  birthDay?: number,
+  gender: string,
+  species: string,
+  hairColor: string,
+  microship: string,
+  album: {
+    albumName: {
+      createtime: string,
+      postId: Array<string>,
+    },
+  },
+  diary: Array<Diary>,
+};
